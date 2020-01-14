@@ -21,9 +21,9 @@
 #define DEFAULT_JOYCON 0
 #define DEFAULT_VOLUME 0
 #define MODES_AVAILABLE 1
-#define DEFAULT_BOOTLOGO 3 //1 = no bootlogo, 2 = static bootlogo, 3 = (sliding), 4 = (wiping) 5 = (white noise)
+#define DEFAULT_BOOTLOGO 1 //1 = no bootlogo, 2 = static bootlogo, 3 = (sliding), 4 = (wiping) 5 = (white noise)
 #define LOGOS_AVAILABLE 5
-#define DEFAULT_SCREENSAVER_ON 1 //1 = active. 0 = inactive.
+#define DEFAULT_SCREENSAVER_ON 0 //1 = active. 0 = inactive.
 
 
 #define PAYLOAD_FLASH_LED_ON_TIME_SECONDS 0.05 // controls blink during payload indication. On
@@ -36,7 +36,7 @@
 ///////////////////////////////////////////
 //#define TXTFILEPROVIDESTRAPVALUES
 
-//#define TRINKET
+#define TRINKET
 //#define TRINKETMETHOD3
 //#define TRINKETLEGACY3
 //#define REBUG
@@ -46,7 +46,7 @@
 //#define GEMMA
 //#define GENERIC_GEMMA_DONGLE
 //#define ITSYBITSY
-#define FEATHER
+//#define FEATHER
 
 
 //non eeprom globals
