@@ -1,4 +1,4 @@
-# FUSEE_SUITE
+## FUSEE UF2
 
 Nintendo Switch internal microcontroller-based payload loader/booter.
 
@@ -16,7 +16,7 @@ I have been away for over 2 years so this is going to take me a while to get bac
 
 ##Fusee_UF2 V7 Changes
 
-**Simplified operation:**
+###Simplified operation:
 
 Looks for "fusee.bin" in SD root and boots it.  
 If not found, looks for bootloader/update.bin( from SDSetup.com)  
