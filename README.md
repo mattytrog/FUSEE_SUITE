@@ -11,8 +11,9 @@ Part 1 of this software which is the SWITCHBOOT RCM bootloader that, once the ch
 
 Part 2 which is the actual payload loading software and chip settings...
 
-
+## Features
 I have been away for over 2 years so this is going to take me a while to get back correct. I can no longer access my old account on GBATemp.
+
 ## Fusee_UF2 V7 Changes
 #### Simplified operation:
 
