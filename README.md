@@ -24,6 +24,14 @@ Hold VOL- to skip "fusee.bin" and run Hekate from default location(bootloader/up
 
 Hold VOL+ to enter config menu.
 
+**Only 3 operations needed on the chip now, all accessible from long press VOL+.**
+First option: Toggle autoRCM. Release at first LONG flash... Or  
+keep holding to:  
+TWO FLASHES: Release at any point within the 2 flashes. RGB LED brightness(0-250). Hit VOL+ at your desired brightness  
+keep holding to:  
+THREE FLASHES+HOLD UNTIL SLOW FLASHING ON AND OFF -  (steady flashing(White on Adafruit boards)): Chip Eeprom reset + SAMD21 update mode on next reboot. Returns to normal on subsequent reboots.  
+  
+## Changes
 Faster boot time. Faster animation(can be disabled easily in hex editor or download the binary UF2)  
 Screen dimming/ Screensaver(if screensaver variable is 0, screen will auto-dim to save battery.)  
 Removed regenerate SXOS licence now they are dead.  
@@ -37,14 +45,7 @@ For Hekate: Drop your BMP anywhere and choose from within the app, with preview.
 Bootlogos are chosen depending on payload in use. For example: If not using "fusee.bin", bootloader/bootlogo.bmp will be rendered.  
 If fusee.bin is being used splash.bmp will be rendered, if fusee is present but overridden with VOL-(to boot Hekate), bootlogo.bmp will be rendered.  
 
-**Only 3 operations needed on the chip now, all accessible from long press VOL+.**
-First option: Toggle autoRCM. Release at first LONG flash... Or  
-keep holding to:  
-TWO FLASHES: Release at any point within the 2 flashes. RGB LED brightness(0-250). Hit VOL+ at your desired brightness  
-keep holding to:  
-THREE FLASHES+HOLD UNTIL SLOW FLASHING ON AND OFF -  (steady flashing(White on Adafruit boards)): Chip Eeprom reset + SAMD21 update mode on next reboot. Returns to normal on subsequent reboots.  
-
-Bugfixes etc...  
+## Bugfixes etc...  
 
 "Payload<x>" feature removed. Pointless... Possibility of changing to incorrect payload.  
 
@@ -55,4 +56,4 @@ Launch has failed(as it would when plugged into PC USB)
 USB voltage is detected(may not activate if battery is 100% and charger isn't doing anything).  
 Values no longer stored to EEPROM for the USB strap  
 
-Could have added lots more things but I want it to be able to fit on a SAMD21E17(128K)  
+## Could have added lots more things but I want it to be able to fit on a SAMD21E17(128K)  
