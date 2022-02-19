@@ -24,7 +24,7 @@ Hold VOL- to skip "fusee.bin" and run Hekate from default location(bootloader/up
 
 Hold VOL+ to enter config menu.
 
-**Only 3 operations needed on the chip now, all accessible from long press VOL+.**
+#### Only 3 operations needed on the chip now, all accessible from long press VOL+.
 First option: Toggle autoRCM. Release at first LONG flash... Or  
 keep holding to:  
 TWO FLASHES: Release at any point within the 2 flashes. RGB LED brightness(0-250). Hit VOL+ at your desired brightness  
