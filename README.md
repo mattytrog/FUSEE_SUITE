@@ -58,3 +58,9 @@ USB voltage is detected(may not activate if battery is 100% and charger isn't do
 Values no longer stored to EEPROM for the USB strap  
 
 ## Could have added lots more things but I want it to be able to fit on a SAMD21E17(128K)  
+  
+  
+## Fitting diagrams
+  ![Chip](https://user-images.githubusercontent.com/41282276/154836661-c192851e-651c-4ae9-8b62-8a2551b5d843.jpg)
+
+  
