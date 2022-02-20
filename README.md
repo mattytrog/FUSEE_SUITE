@@ -37,20 +37,24 @@ Green text because it looks nicer.
 Reboot bootloader option.  
 About option - take a read.  
 Unused stuff deleted from old Hekate base - Smaller binary size(you won't notice as UF2 = 512kb)  
+
 Bootlogo support and manager. View / select up to 2 bootlogos:  
-For Atmosphere: Drop your BMP anywhere and choose from within the app, with preview. Or place directly into atmosphere/splash.bmp  
-For Hekate: Drop your BMP anywhere and choose from within the app, with preview. Or place directly into bootloader/bootlogo.bmp  
+
+  For Atmosphere: Drop your BMP anywhere and choose from within the app, with preview. Or place directly into atmosphere/splash.bmp  
+
+  For Hekate: Drop your BMP anywhere and choose from within the app, with preview. Or place directly into bootloader/bootlogo.bmp  
+
 Bootlogos are chosen depending on payload in use. For example: If not using "fusee.bin", bootloader/bootlogo.bmp will be rendered.  
 If fusee.bin is being used splash.bmp will be rendered, if fusee is present but overridden with VOL-(to boot Hekate), bootlogo.bmp will be rendered.  
 
 ## Bugfixes etc...  
-Bugs from last public UF2 release:
+Bugs from last public UF2 release:  
 Payload<x> feature could have been set on to an unused payload "slot", causing confusion when incorrect payload is "selected" inadvertantly.
 Cheap chargers(ie Venom) are not as clean as stock Nintendo. This was resulting in random reboots, disconnecting the joycon and messing with the volume.
 Poor intermittent joycon CHARGING connection resulting in random reboots. This was due to USB strap being activated by less-than-perfect joycon pin cleanliness. Keep pins clean!  .
 Too many unused features being accessible from just pressing VOL+. Confusing for people.  
   
-Fixes in this release:
+Fixes in this release:  
 Removed payload<x>. Really no need for it.  
 Only 3 operations needed on the chip now, all accessible from long press VOL+.  
 Reworked USB strap code to only place a wakeup interrupt in the following conditions:  
