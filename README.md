@@ -79,7 +79,7 @@ Values no longer stored to EEPROM for the USB strap
   Feather M0  
   
   ## [Diagrams << Click here](https://github.com/mattytrog/FUSEE_UF2_SUITE/tree/master/Install%20Diagrams)
-  ## [TidyMemloader(just drag and drop to SD and forget. Gives USB access without Hekate/Nyx] (https://github.com/mattytrog/FUSEE_SUITE/tree/master/Fusee-Suite/Tidy_Memloader)
+  ## [TidyMemloader - just drag and drop to SD and forget. Gives USB access without Hekate/Nyx] (https://github.com/mattytrog/FUSEE_SUITE/tree/master/Fusee-Suite/Tidy_Memloader)
   ![Chip](https://user-images.githubusercontent.com/41282276/154836661-c192851e-651c-4ae9-8b62-8a2551b5d843.jpg)
 
   
