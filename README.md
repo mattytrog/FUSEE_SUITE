@@ -51,8 +51,8 @@ If fusee.bin is being used splash.bmp will be rendered, if fusee is present but 
 #### Bugs from last public UF2 release:  
   
 Payload<x> feature could have been set on to an unused payload "slot", causing confusion when incorrect payload is "selected" inadvertantly.
-Cheap chargers(ie Venom) are not as clean as stock Nintendo. This was resulting in random reboots, disconnecting the joycon and messing with the volume.
-Poor intermittent joycon CHARGING connection resulting in random reboots. This was due to USB strap being activated by less-than-perfect joycon pin cleanliness. Keep pins clean!  .
+Cheap chargers(ie Venom) are not as clean as stock Nintendo. This was resulting in random reboots, disconnecting the joycon and messing with the volume.  
+Poor intermittent joycon CHARGING connection resulting in random reboots. This was due to USB strap being activated by less-than-perfect joycon pin cleanliness. Keep pins clean!  
 Too many unused features being accessible from just pressing VOL+. Confusing for people.  
   
 #### Fixes in this release:  
