@@ -61,6 +61,15 @@ Values no longer stored to EEPROM for the USB strap
   
   
 ## Fitting diagrams
+  Supported microcontrollers:  
+  Trinket M0  
+  RCMX86  
+  Rebug  
+  Gemma M0  
+  Itsybitsy M0  
+  Feather M0  
+  
+  ## [Diagrams << Click here](https://github.com/mattytrog/FUSEE_UF2_SUITE/tree/master/Install%20Diagrams)  
   ![Chip](https://user-images.githubusercontent.com/41282276/154836661-c192851e-651c-4ae9-8b62-8a2551b5d843.jpg)
 
   
