@@ -69,7 +69,7 @@ Values no longer stored to EEPROM for the USB strap
   Itsybitsy M0  
   Feather M0  
   
-  ##[Diagrams](https://github.com/mattytrog/FUSEE_UF2_SUITE/tree/master/Install%20Diagramsm)
+  ## [Diagrams](https://github.com/mattytrog/FUSEE_UF2_SUITE/tree/master/Install%20Diagramsm)  
   ![Chip](https://user-images.githubusercontent.com/41282276/154836661-c192851e-651c-4ae9-8b62-8a2551b5d843.jpg)
 
   
