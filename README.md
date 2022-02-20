@@ -61,22 +61,22 @@ Removed payloadX. Really no need for it.
 Only 3 operations needed on the chip now, all accessible from long press VOL+.  
 Reworked USB strap code to only place a wakeup interrupt in the following conditions:  
 
-* ChipRCM(autoRCM chip-based) is enabled  *
-* Launch has failed(as it would when plugged into PC USB)  *
-* USB voltage is detected(may not activate if battery is 100% and charger isn't doing anything).  *
-* Values no longer stored to EEPROM for the USB strap  *
+* ChipRCM(autoRCM chip-based) is enabled  
+* Launch has failed(as it would when plugged into PC USB)  
+* USB voltage is detected(may not activate if battery is 100% and charger isn't doing anything).  
+* Values no longer stored to EEPROM for the USB strap  
 
 ## Could have added lots more things but I want it to be able to fit on a SAMD21E17(128K)  
   
   
 ## Fitting diagrams
   Supported microcontrollers:  
-  Trinket M0  
-  RCMX86  
-  Rebug  
-  Gemma M0  
-  Itsybitsy M0  
-  Feather M0  
+*  Trinket M0  
+*  RCMX86  
+*  Rebug  
+*  Gemma M0  
+*  Itsybitsy M0  
+*  Feather M0  
   
   ## [Diagrams << Click here](https://github.com/mattytrog/FUSEE_UF2_SUITE/tree/master/Install%20Diagrams)
   ## [TidyMemloader - just drag and drop to SD and forget. Gives USB access without Hekate/Nyx](https://github.com/mattytrog/FUSEE_SUITE/tree/master/Fusee-Suite/Tidy_Memloader)
