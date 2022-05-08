@@ -20,6 +20,7 @@ New base
 - More base modifications
 - Removed Bootlogo bitmap support for speed
 - Cleaned up Arduino code
+- Look in the About section for more information once flashed.
 
 
 ## Fusee_UF2 V7 Changes  
