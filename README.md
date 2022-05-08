@@ -11,6 +11,18 @@ Part 2 which is the actual payload loading software and chip settings...
 ## Features
 I have been away for over 2 years so this is going to take me a while to get back correct. I can no longer access my old account on GBATemp.  
 
+## Fusee_UF2 V9 BETA Changes
+New base
+Vastly simplified. Only 6 chip options
+Faster booting - pre-checking / precaching of payload during bootlogo
+Use either long-press or multiple-press chip settings options
+Battery icon improved
+More base modifications
+
+- Removed Bootlogo bitmap support for speed
+- Cleaned up Arduino code
+
+
 ## Fusee_UF2 V7 Changes  
 #### Simplified operation:  
 
