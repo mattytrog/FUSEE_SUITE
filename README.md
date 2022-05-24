@@ -5,93 +5,97 @@ Nintendo Switch internal microcontroller-based payload loader/booter.
 This consists of:  
 A Nintendo Switch v1 UNPATCHED CONSOLE  
 SAMD21 Device (Adafruit Trinket / Gemma / ItsyBitsy etc)  
-Part 1 of this software which is the SWITCHBOOT RCM bootloader that, once the chip is installed in your console, will trigger RCM mode.  
+Part 1 of this software which is the SWITCHBOOT or FUSEE RCM bootloader that, once the chip is installed in your console, will trigger RCM mode.  
 Part 2 which is the actual payload loading software and chip settings...  
 
-## Features
-I have been away for over 2 years so this is going to take me a while to get back correct. I can no longer access my old account on GBATemp.  
+Brief instructions:
+Fit chip
+Choose and flash a "part 1"
+Flash UF2
+Fin
 
-## Fusee_UF2 V9 BETA Changes
-New base
-- Vastly simplified. Only 6 chip options
-- Faster booting - pre-checking / precaching of payload during bootlogo
-- Use either long-press or multiple-press chip settings options
-- Battery icon improved
-- More base modifications
-- Removed Bootlogo bitmap support for speed
-- Cleaned up Arduino code
-- Look in the About section for more information once flashed.
+## FITTING A CHIP
+
+Most SAMD21 devices are or can be supported.
+
+Look in the <install diagrams> to see how to fit one. Or fit a 'Naked' chip, without buttons, LED or even PCB.
+
+## Operation
+
+Choose a part 1 - either with reset switch support or without. Without is faster but you cannot double-press reset to access bootloader... Instead hold VOL+ for 20 seconds.
+ - This is for naked chips / boards (eg RCMX86) or "thick" boards, eg QTPY_m0, which require removing RST button.
+ 
+Flash part 2 - I will upload 2 identical versions. One with the long-press settings approach, one with multiple press approach. These are identical files with just one 
+	option "preset" to enable long or multiple-press. You can change this option in the menu or with your VOL+ button. This is for convenience only. The files are exactly
+	identical.
+	
+Long-press - at ANY POINT the console is powered on, you can HOLD VOL+ and and LED will flash. Count these flashes for a setting.
+The settings are:
+Flash 1 - Dual-boot / Chip-based RCM toggle (by default, chip RCM is enabled and console will enter RCM every boot if straps are connected)
+Flash 2 - Bootlogo colour toggle - "Stock" black or "Switch" red
+Flash 3 - RGB LED / Dotstar / Neopixel brightness
+Flash 4 - Long-press / Multiple-press settings toggle
+Flash 5 - Reset all chip options back to defaults(AutoRCM - ChipRCM actually enabled, black / white "stock" bootscreen)
+Flash 6 - UF2 Bootloader access. Activate this when in the Fusee_UF2 program, connect to PC and launch something (OFW / CFW?) and the FUSEE (was SWITCHBOOT) will pop right open
+
+Multiple-press - This mode is only active for 30 seconds from a cold-boot. So if you want to set multiple options, you might need to reboot to reset the countdown.
+	The countdown is displayed on the screen. Why have a countdown? So it cannot be accidentally activated. Kids and grownups will multiple-press VOL+ to increase volume
+	in normal usage. This could cause settings to get changed. There is a "plus" side to this mode. You can set the options in the Fusee menu. Look at the
+	"Chip Setting Assistant". This makes it possible to use a chip completely "blind" and "naked" - IE without LED or reset switch.
+	
+	Options 1 - 6 are the same as above.
+	
+	Enter the Chip Setup Assistant in the menu and quickly press VOL+ to change your desired option. 
+	
+	Why not just have a menu that you can use "normally"?
+	Limitations.
+	It isn't possible to talk to the chip once the inbuilt "payload" is running. Or rather, it IS... But USB code would require A LOT of work, to flip from host to device mode,
+	enumerate from Switch side and communicate via Serial. Adding new wires to implement I2C or something was considered. But this doesn't help old chip users from day 1.
+	Also there is space. The current size makes it a REAL squeeze to fit onto a SAMD21E17 as it is. Thats why E18 is default (with 256kb flash).
+	For the options available, it just isn't worth it.
+	So we are "mirroring" the multiple-presses in software that we are doing in hardware. That is all.
+	
+Other menu-based features - bare minimum QUICK backup. Not got patience to wait for full rawnand dump? Backup just your BOOT0/1/PRODINFO partitions. Rebuilding a NAND
+from scratch is still a faff, but you will have all your certs and calibration data intact. There are some vicious b**tards out there. Do a SAFE backup. Now.
+
+## Summary of works done in this version of the package
+
+UF2 Bootloader modifications
+
+Updated for QTPY
+Detection code to check dual-boot flag
+Renamed
+Option to remove RST button support for faster booting and units without RST switch.
+Adjustable delay for straps(currently 50mS)
+Built using 2019-9-Q4 GCC toolchain. Newer versions result in a slower binary which cannot init fast enough to enter RCM.
 
 
-## Fusee_UF2 V7 Changes  
-#### Simplified operation:  
+Main program modifications
 
-Looks for "fusee.bin" in SD root and boots it.  
-If not found, looks for bootloader/update.bin( from SDSetup.com)  
+Started with Hekate 5.2+ base
+Screen flipped horizontal
+Font changed
+Colours modified
+tui modified - reimp. of status bar. New timeout feature - returns to main screen after so long.
+gfx modified - new font, new batt asset, screen dimming
+file browser - cleaned up. Multiple pages supported. Easy to use "api". Browse / launch / delete any file in any location on SD
+safe backup added (quick - BOOOT0/1/PRODINFO)
+Repair pack BOOT0/1 (undersize) flash support
+File / folder deletion
+enable / disable nyx
+backup and restore from any folder
+pre-caching / pre-"stat"ing of payloads during bootscreen show for speed
+chip setup assistant reordered so people without RST or LED and get into bootloader mode
+chip setup assistant (if multiple-press is used) makes LED not required.
+Now you can fit a "naked" chip to the underside and access all functions without LED or RST switch
+Added more informative chip help screen / about screen
 
-Hold VOL- to skip "fusee.bin" and run Hekate from default location(bootloader/update.bin). Customise in menu  
-"Payload<x>" feature removed. Pointless... Possibility of changing to incorrect payload.  
 
-Hold VOL+ to enter config menu.
+Arduino modifications
 
-#### Only 3 operations needed on the chip now, all accessible from long press VOL+.
-First option: Toggle autoRCM. Release at first LONG flash... Or  
-keep holding to:  
-TWO FLASHES: Release at any point within the 2 flashes. RGB LED brightness(0-250). Hit VOL+ at your desired brightness  
-keep holding to:  
-THREE FLASHES+HOLD UNTIL SLOW FLASHING ON AND OFF -  (steady flashing(White on Adafruit boards)): Chip Eeprom reset + SAMD21 update mode on next reboot. Returns to normal on subsequent reboots.  
-  
-## Changes
-Faster boot time. Faster animation(can be disabled easily in hex editor or download the binary UF2)  
-Screen dimming/ Screensaver(if screensaver variable is 0, screen will auto-dim to save battery.)  
-Removed regenerate SXOS licence now they are dead.  
-Green text because it looks nicer.  
-Reboot bootloader option.  
-About option - take a read.  
-Unused stuff deleted from old Hekate base - Smaller binary size(you won't notice as UF2 = 512kb)  
+Cleanup
+Speedup check / launch / stack collapse. Fusee launching (to Atmosphere logo at least) is 2x faster than stock.
+If faulty charger or connection, this can be detected and shown (repeated reboots are counted and stored), if necessary, control switched off.
+Neopixel support added
+20s long-press for "blind" sans-LED UF2 bootloader access.
 
-Bootlogo support and manager. View / select up to 2 bootlogos:  
-
-  For Atmosphere: Drop your BMP anywhere and choose from within the app, with preview. Or place directly into atmosphere/splash.bmp  
-
-  For Hekate: Drop your BMP anywhere and choose from within the app, with preview. Or place directly into bootloader/bootlogo.bmp  
-
-Bootlogos are chosen depending on payload in use. For example: If not using "fusee.bin", bootloader/bootlogo.bmp will be rendered.  
-If fusee.bin is being used splash.bmp will be rendered, if fusee is present but overridden with VOL-(to boot Hekate), bootlogo.bmp will be rendered.  
-
-## Bugfixes etc...  
-#### Bugs from last public UF2 release:  
-  
-Payload<x> feature could have been set on to an unused payload "slot", causing confusion when incorrect payload is "selected" inadvertantly.
-Cheap chargers(ie Venom) are not as clean as stock Nintendo. This was resulting in random reboots, disconnecting the joycon and messing with the volume.  
-Poor intermittent joycon CHARGING connection resulting in random reboots. This was due to USB strap being activated by less-than-perfect joycon pin cleanliness. Keep pins clean!  
-Too many unused features being accessible from just pressing VOL+. Confusing for people.  
-  
-#### Fixes in this release:  
-  
-Removed payloadX. Really no need for it.  
-Only 3 operations needed on the chip now, all accessible from long press VOL+.  
-Reworked USB strap code to only place a wakeup interrupt in the following conditions:  
-
-* ChipRCM(autoRCM chip-based) is enabled  
-* Launch has failed(as it would when plugged into PC USB)  
-* USB voltage is detected(may not activate if battery is 100% and charger isn't doing anything).  
-* Values no longer stored to EEPROM for the USB strap  
-
-## Could have added lots more things but I want it to be able to fit on a SAMD21E17(128K)  
-  
-  
-## Fitting diagrams
-  Supported microcontrollers:  
-*  Trinket M0  
-*  RCMX86  
-*  Rebug  
-*  Gemma M0  
-*  Itsybitsy M0  
-*  Feather M0  
-  
-  ## [Diagrams << Click here](https://github.com/mattytrog/FUSEE_UF2_SUITE/tree/master/Install%20Diagrams)
-  ## [TidyMemloader - just drag and drop to SD and forget. Gives USB access without Hekate/Nyx](https://github.com/mattytrog/FUSEE_SUITE/tree/master/Fusee-Suite/Tidy_Memloader)
-  ![Chip](https://user-images.githubusercontent.com/41282276/154836661-c192851e-651c-4ae9-8b62-8a2551b5d843.jpg)
-
-  
