@@ -22,12 +22,14 @@ Look in the <install diagrams> to see how to fit one. Or fit a 'Naked' chip, wit
 
 ## Operation
 
-Choose a part 1 - either with reset switch support or without. Without is faster but you cannot double-press reset to access bootloader... Instead hold VOL+ for 20 seconds.
+#### Choose a part 1
+Either with reset switch support or without. Without is faster but you cannot double-press reset to access bootloader... Instead hold VOL+ for 20 seconds.
 This is for naked chips / boards (eg RCMX86) or "thick" boards, eg QTPY_m0, which require removing RST button.
  
-Flash part 2 - I will upload 2 identical versions. One with the long-press settings approach, one with multiple press approach. These are identical files with just one 
-	option "preset" to enable long or multiple-press. You can change this option in the menu or with your VOL+ button. This is for convenience only. The files are exactly
-	identical.
+#### Flash part 2
+I will upload 2 identical versions. One with the long-press settings approach, one with multiple press approach. These are identical files with just one 
+option "preset" to enable long or multiple-press. You can change this option in the menu or with your VOL+ button. This is for convenience only. The files are exactly
+identical.
 	
 Long-press - at ANY POINT the console is powered on, you can HOLD VOL+ and and LED will flash. Count these flashes for a setting.
 The settings are:
@@ -62,12 +64,12 @@ from scratch is still a faff, but you will have all your certs and calibration d
 
 UF2 Bootloader modifications
 
-Updated for QTPY
-Detection code to check dual-boot flag
-Renamed
-Option to remove RST button support for faster booting and units without RST switch.
-Adjustable delay for straps(currently 50mS)
-Built using 2019-9-Q4 GCC toolchain. Newer versions result in a slower binary which cannot init fast enough to enter RCM.
+- Updated for QTPY
+- Detection code to check dual-boot flag
+- Renamed
+- Option to remove RST button support for faster booting and units without RST switch.
+- Adjustable delay for straps(currently 50mS)
+- Built using 2019-9-Q4 GCC toolchain. Newer versions result in a slower binary which cannot init fast enough to enter RCM.
 
 
 Main program modifications
