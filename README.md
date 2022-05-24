@@ -60,7 +60,7 @@ So we are "mirroring" the multiple-presses in software that we are doing in hard
 Other menu-based features - bare minimum QUICK backup. Not got patience to wait for full rawnand dump? Backup just your BOOT0/1/PRODINFO partitions. Rebuilding a NAND
 from scratch is still a faff, but you will have all your certs and calibration data intact. There are some vicious b**tards out there. Do a SAFE backup. Now.
 
-## Summary of works done in this version of the package
+#### Summary of works done in this version of the package
 
 UF2 Bootloader modifications
 
@@ -72,32 +72,32 @@ UF2 Bootloader modifications
 - Built using 2019-9-Q4 GCC toolchain. Newer versions result in a slower binary which cannot init fast enough to enter RCM.
 
 
-Main program modifications
+#### Main program modifications
 
-Started with Hekate 5.2+ base
-Screen flipped horizontal
-Font changed
-Colours modified
-tui modified - reimp. of status bar. New timeout feature - returns to main screen after so long.
-gfx modified - new font, new batt asset, screen dimming
-file browser - cleaned up. Multiple pages supported. Easy to use "api". Browse / launch / delete any file in any location on SD
-safe backup added (quick - BOOOT0/1/PRODINFO)
-Repair pack BOOT0/1 (undersize) flash support
-File / folder deletion
-enable / disable nyx
-backup and restore from any folder
-pre-caching / pre-"stat"ing of payloads during bootscreen show for speed
-chip setup assistant reordered so people without RST or LED and get into bootloader mode
-chip setup assistant (if multiple-press is used) makes LED not required.
-Now you can fit a "naked" chip to the underside and access all functions without LED or RST switch
-Added more informative chip help screen / about screen
+- Started with Hekate 5.2+ base
+- Screen flipped horizontal
+- Font changed
+- Colours modified
+- tui modified - reimp. of status bar. New timeout feature - returns to main screen after so long.
+- gfx modified - new font, new batt asset, screen dimming
+- File browser - cleaned up. Multiple pages supported. Easy to use "api". Browse / launch / delete any file in any location on SD
+- Safe backup added (quick - BOOOT0/1/PRODINFO)
+- Repair pack BOOT0/1 (undersize) flash support
+- File / folder deletion
+- Enable / disable nyx
+- Backup and restore from any folder
+- Pre-caching / pre-"stat"ing of payloads during bootscreen show for speed
+- Chip setup assistant reordered so people without RST or LED and get into bootloader mode
+- Chip setup assistant (if multiple-press is used) makes LED not required.
+- Now you can fit a "naked" chip to the underside and access all functions without LED or RST switch
+- Added more informative chip help screen / about screen
 
 
-Arduino modifications
+#### Arduino modifications
 
-Cleanup
-Speedup check / launch / stack collapse. Fusee launching (to Atmosphere logo at least) is 2x faster than stock.
-If faulty charger or connection, this can be detected and shown (repeated reboots are counted and stored), if necessary, control switched off.
-Neopixel support added
-20s long-press for "blind" sans-LED UF2 bootloader access.
+- Cleanup
+- Speedup check / launch / stack collapse. Fusee launching (to Atmosphere logo at least) is 2x faster than stock.
+- If faulty charger or connection, this can be detected and shown (repeated reboots are counted and stored), if necessary, -control switched off.
+- Neopixel support added
+- 20s long-press for "blind" sans-LED UF2 bootloader access.
 
