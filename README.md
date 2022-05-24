@@ -1,3 +1,7 @@
+## Current Version: 9.1
+## Part 1 updated (after 4 years!) to support newer boards
+## Old README and other versions are <HERE>
+
 ## FUSEE UF2
 
 Nintendo Switch internal microcontroller-based payload loader/booter.  
