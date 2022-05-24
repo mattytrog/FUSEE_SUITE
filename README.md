@@ -1,6 +1,7 @@
 ## Current Version: 9.1
 ## Part 1 updated (after 4 years!) to support newer boards
-## Old README and other versions are <HERE>
+## Old README and other versions are HERE
+
 
 ## FUSEE UF2
 
