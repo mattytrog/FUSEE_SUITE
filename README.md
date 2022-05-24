@@ -2,6 +2,8 @@
 ## Part 1 updated (after 4 years!) to support newer boards
 ## Old README and other versions are HERE
 
+## USERS WITHOUT RESET BUTTON
+To access the UF2 bootloader, either HOLD VOL+ for 20 Seconds (LED users) or SELECT THE OPTION IN THE CHIP ASSISTANT MENU. See below...
 
 ## FUSEE UF2
 
