@@ -1,5 +1,14 @@
 ## Current Version: 9.1
 ## Part 1 updated (after 4 years!) to support newer boards
+Boards supported are:
+- Adafruit Trinket M0
+- Adafruit QTPY M0
+- Rebug SWITCHME
+- RCM-X86
+- Adafruit Gemma
+- Adafruit ItsyBitsy
+- Adafruit Feather
+- **NEW** Naked chip - if you are REALLY gifted at soldering, fit a QFP chip underneath. No buttons or LEDS needed
 ## Old README and other versions are HERE
 
 ## USERS WITHOUT RESET BUTTON
