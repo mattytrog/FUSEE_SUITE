@@ -1,8 +1,7 @@
 ## Current Version: 9.2
 
-I've dropped a big b0llock. I pushed v9.1 to my repo my side but for whatever idiotic reason, I didn't actually push it. I will do this on Friday when I'm home. I'm on holiday. And can't really get back to my computer until then. 
-I added more documentation etc etc but it's all still f..kin sat there.
-So... Wait on updating part 1 until Friday. Anyone who has and is struggling entering bootloader mode(because they dropped part 2 on there), I'll fix free of charge if you are unable to access bootloader mode. In meantime, your chip should continue to work normally using v9.0. if not, you should be able to enter bootloader mode.
+TL;DR? OK... All files now updated. Part 1 - Lots of modifications. Part 2 - Same. - SETTINGS.UF2 files introduced.
+
 ## Part 1 updated (after 4 years!) to support newer boards
 Boards supported are:
 - Adafruit Trinket M0
