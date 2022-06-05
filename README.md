@@ -146,7 +146,7 @@ onboard single LED - so RGB LED is enabled on this.
 - Neopixel support added
 - 20s long-press for "blind" sans-LED UF2 bootloader access.
 
-#### ISSUES / FAQ
+## ISSUES / FAQ
 
 - I flashed Part 1 - Nothing happened. No drive popped up.
 
