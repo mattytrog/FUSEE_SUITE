@@ -1,4 +1,4 @@
-## These are settings files for all versions of Fusee_UF2. Just open your UF2 drive and drag / drop. This will not overwrite your current firmware, this merely changes virtual EEPROM settings.
+## These are settings files for all versions of Fusee_UF2. Just open your UF2 drive and drag / drop. This will not overwrite your current firmware, this merely changes virtual EEPROM settings. You can of course use VOL+ to change these settings when CFW is running, as always.
 
 ## Naming Convention
 
