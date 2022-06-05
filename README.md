@@ -94,7 +94,7 @@ So we are "mirroring" the multiple-presses in software that we are doing in hard
 Other menu-based features - bare minimum QUICK backup. Not got patience to wait for full rawnand dump? Backup just your BOOT0/1/PRODINFO partitions. Rebuilding a NAND
 from scratch is still a faff, but you will have all your certs and calibration data intact. There are some vicious b**tards out there. Do a SAFE backup. Now.
 
-#### Summary of works done in this version of the package
+## Summary of works done in this version of the package
 
 UF2 Bootloader modifications
 
