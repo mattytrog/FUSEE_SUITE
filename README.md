@@ -1,4 +1,4 @@
-## Current Version: 9.1
+## Current Version: 9.2
 
 I've dropped a big b0llock. I pushed v9.1 to my repo my side but for whatever idiotic reason, I didn't actually push it. I will do this on Friday when I'm home. I'm on holiday. And can't really get back to my computer until then. 
 I added more documentation etc etc but it's all still f..kin sat there.
@@ -32,16 +32,26 @@ Part 1 of this software which is the SWITCHBOOT or FUSEE RCM bootloader that, on
 Part 2 which is the actual payload loading software and chip settings...  
 
 Brief instructions:
-Fit chip
-Choose and flash a "part 1"
-Flash UF2
-Fin
+- Fit chip
+- Flash "part 1"
+- Choose a "part 2"... Flash
+- Flash optional SETTINGS.UF2
+- Fin
 
 ## FITTING A CHIP
 
 Most SAMD21 devices are or can be supported.
 
 Look in the <install diagrams> to see how to fit one. Or fit a 'Naked' chip, without buttons, LED or even PCB.
+	
+It is recommended to flash your chip BEFORE FITTING in most cases. This is your decision though. You can access the UF2 bootloader in all circumstances. A new VIRGIN SOLO chip MUST be flashed before fitting, for your own sanity.
+	
+So...
+	
+- Flash Part 1 - a Fusee drive will open.
+- Flash Part 2 - the software will run immediately.
+- OPTIONAL - You will see new "SETTINGS.UF2" files. These are universal across all SAMD21 chips. Access UF2 mode and drag/drop to change your chip settings.
+
 
 ## Operation
 
@@ -55,7 +65,7 @@ If you are reflashing a bricked chip, same instructions apply.
 #### Flash part 2
 I will upload 2 identical versions. One with the long-press settings approach, one with multiple press approach. These are identical files with just one 
 option "preset" to enable long or multiple-press. You can change this option in the menu or with your VOL+ button. This is for convenience only. The files are exactly
-identical.
+identical. You can also change your settings with a SETTINGS.UF2 file.
 	
 Long-press - at ANY POINT the console is powered on, you can HOLD VOL+ and and LED will flash. Count these flashes for a setting.
 The settings are:
@@ -136,4 +146,10 @@ onboard single LED - so RGB LED is enabled on this.
 - If faulty charger or connection, this can be detected and shown (repeated reboots are counted and stored), if necessary, -control switched off.
 - Neopixel support added
 - 20s long-press for "blind" sans-LED UF2 bootloader access.
+	
+#### TODO: More indepth guide on flashing and usage
+	
+#### TODO: Raspberry Pi OpenOCD image link here and brief guide.
+	
+## Disclaimer: You should know exactly what you are doing before attempting this modification. It isn't easy - there are really really small points to solder to. No keys or Nintendo copyrighted works are included in this. This is released as open-source, with no warranty given or implied. YOU ONLY HAVE YOURSELF TO BLAME.
 
