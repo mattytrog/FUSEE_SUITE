@@ -6,7 +6,7 @@ The filename has 4 "sections"...
 
 #### Section 1: Bootlogo colour - Black or Red (B / R)
 
-#### Section 2: Strap presence prechecked. Assumes all straps are fitted and working(AS), or tested on-device(NS) - All straps or No straps (AS / NS)
+#### Section 2: Strap presence prechecked. Assumes all straps are fitted and working(AS), or tested on-device(NS) - All straps or No straps (AS / NS), or (JVU)
 
 #### Section 3: Dual-boot(DB), ChipRCM(CRCM)(permanent CFW boot), FailsafeRCM(FRCM) - if USB strap is fitted - (Normal boot will occur if USB power is connected, to prevent locked in RCM. WILL BURN FUSES)
 
@@ -29,3 +29,9 @@ The filename has 4 "sections"...
 - AS = ALL STRAPS PRE_CHECKED
 - FRCM = FAILSAFE RCM - Normal boot will occur if USB power is connected, to prevent locked in RCM.
 - LP = LONG-PRESS VOLUME ONBOARD CHIP SETTINGS ADJUSTMENT
+
+#### Example 4: R_JV_CRCM_MP.UF2
+- B = BLACK
+- JV = Joycon and Volume prechecked
+- CRCM = CHIPRCM DEFAULT
+- MP = MULTIPLE-PRESS VOLUME ONBOARD CHIP SETTINGS ADJUSTMENT
