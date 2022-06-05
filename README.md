@@ -2,22 +2,7 @@
 
 TL;DR? OK... All files now updated. Part 1 - Lots of modifications. Part 2 - Same. - SETTINGS.UF2 files introduced.
 
-## Part 1 updated (after 4 years!) to support newer boards
-Boards supported are:
-- Adafruit Trinket M0
-- Adafruit QTPY M0
-- Rebug SWITCHME
-- RCM-X86
-- Adafruit Gemma
-- Adafruit ItsyBitsy
-- Adafruit Feather
-- **NEW** Naked chip - if you are REALLY gifted at soldering, fit a QFP chip underneath. No buttons or LEDS needed
 ## Old README and other versions are [HERE](https://github.com/mattytrog/FUSEE_SUITE/tree/master/Fusee-Suite/Old)
-
-## USERS WITHOUT RESET BUTTON
-To access the UF2 bootloader, either HOLD VOL+ for 20 Seconds (LED users) or SELECT THE OPTION IN THE CHIP ASSISTANT MENU.
-If you have no part 2 flashed, or is corrupt, and you have no access to the RESET pin, you can alternatively power-off your chip,
-touch SWDIO to GND and power on. This will get you into the part 1 bootloader... See below...
 
 ## FUSEE UF2
 
@@ -29,19 +14,39 @@ SAMD21 Device (Adafruit Trinket / Gemma / ItsyBitsy etc)
 Part 1 of this software which is the SWITCHBOOT or FUSEE RCM bootloader that, once the chip is installed in your console, will trigger RCM mode.  
 Part 2 which is the actual payload loading software and chip settings...  
 
-Brief instructions:
+## Brief instructions:
 - Fit chip
 - Flash "part 1"
 - Choose a "part 2"... Flash
 - Flash optional SETTINGS.UF2
-- Fin
+- Set up your SD card at sdsetup.com
+- Put fusee.bin in root of SD
+- Power on.
+- Short press VOL+ boots fusee.bin(or Hekate/Nyx). Long press on VOL+ enters menu
+- VOL- AND VOL+ runs Hekate/Nyx(no further config necessary - payload should already be "bootloader/update.bin"
+- Press no buttons - either fusee.bin will launch, or Original Firmware will launch depending on your chip settings
 
 ## FITTING A CHIP
 
 Most SAMD21 devices are or can be supported.
 
+Boards supported are:
+- Adafruit Trinket M0
+- Adafruit QTPY M0
+- Rebug SWITCHME
+- RCM-X86
+- Adafruit Gemma
+- Adafruit ItsyBitsy
+- Adafruit Feather
+- **NEW** Naked chip - if you are REALLY gifted at soldering, fit a QFP chip underneath. No buttons or LEDS needed
+
 Look in the [install diagrams](https://github.com/mattytrog/FUSEE_SUITE/tree/master/Install%20Diagrams) to see how to fit one. Or fit a 'Naked' chip, without buttons, LED or even PCB.
-	
+
+## USERS WITHOUT RESET BUTTON
+To access the UF2 bootloader, either HOLD VOL+ for 20 Seconds (LED users) or SELECT THE OPTION IN THE CHIP ASSISTANT MENU.
+If you have no part 2 flashed, or is corrupt, and you have no access to the RESET pin, you can alternatively power-off your chip,
+touch SWDIO to GND and power on. This will get you into the part 1 bootloader... See below...
+
 It is recommended to flash your chip BEFORE FITTING in most cases. This is your decision though. You can access the UF2 bootloader in all circumstances. A new VIRGIN SOLO chip MUST be flashed before fitting, for your own sanity.
 	
 So...
