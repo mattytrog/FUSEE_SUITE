@@ -32,10 +32,11 @@ Part 1 of this software which is the SWITCHBOOT or FUSEE RCM bootloader that, on
 Part 2 which is the actual payload loading software and chip settings...  
 
 Brief instructions:
-Fit chip
-Choose and flash a "part 1"
-Flash UF2
-Fin
+- Fit chip
+- Flash "part 1"
+- Choose a "part 2"... Flash
+- Flash optional SETTINGS.UF2
+- Fin
 
 ## FITTING A CHIP
 
