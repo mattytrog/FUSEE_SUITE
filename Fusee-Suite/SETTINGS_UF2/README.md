@@ -2,13 +2,13 @@
 
 The filename has 4 "sections"...
 
-Section 1: Bootlogo colour - Black or Red (B / R)
+#### Section 1: Bootlogo colour - Black or Red (B / R)
 
-Section 2: Strap presence prechecked. Assumes all straps are fitted and working(AS), or tested on-device(NS) - All straps or No straps (AS / NS)
+#### Section 2: Strap presence prechecked. Assumes all straps are fitted and working(AS), or tested on-device(NS) - All straps or No straps (AS / NS)
 
-Section 3: Dual-boot(DB), ChipRCM(CRCM)(permanent CFW boot), FailsafeRCM(FRCM) - if USB strap is fitted - (Normal boot will occur if USB power is connected, to prevent locked in RCM. WILL BURN FUSES)
+#### Section 3: Dual-boot(DB), ChipRCM(CRCM)(permanent CFW boot), FailsafeRCM(FRCM) - if USB strap is fitted - (Normal boot will occur if USB power is connected, to prevent locked in RCM. WILL BURN FUSES)
 
-Section 4: Long-press(LP) or Multiple-press(MP) - Long-press is for LED fitted devices. Just long-press and let go to change a setting. Multiple-press gives you an "assistant" in the menu, handy for people WITHOUT LED.
+#### Section 4: Long-press(LP) or Multiple-press(MP) - Long-press is for LED fitted devices. Just long-press and let go to change a setting. Multiple-press gives you an "assistant" in the menu, handy for people WITHOUT LED.
 
 #### Example 1: B_AS_CRCM_LP.UF2
 - B = BLACK
