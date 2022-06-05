@@ -12,8 +12,7 @@ Boards supported are:
 - Adafruit ItsyBitsy
 - Adafruit Feather
 - **NEW** Naked chip - if you are REALLY gifted at soldering, fit a QFP chip underneath. No buttons or LEDS needed
-## Old README and other versions are HERE
-(https://github.com/mattytrog/FUSEE_SUITE/tree/master/Fusee-Suite/Old)
+## Old README and other versions are [HERE](https://github.com/mattytrog/FUSEE_SUITE/tree/master/Fusee-Suite/Old)
 
 ## USERS WITHOUT RESET BUTTON
 To access the UF2 bootloader, either HOLD VOL+ for 20 Seconds (LED users) or SELECT THE OPTION IN THE CHIP ASSISTANT MENU.
@@ -146,7 +145,7 @@ onboard single LED - so RGB LED is enabled on this.
 - Neopixel support added
 - 20s long-press for "blind" sans-LED UF2 bootloader access.
 
-#### ISSUES / FAQ
+## ISSUES / FAQ
 
 - I flashed Part 1 - Nothing happened. No drive popped up.
 
