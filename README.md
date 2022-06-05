@@ -1,8 +1,7 @@
 ## Current Version: 9.2
 
-I've dropped a big b0llock. I pushed v9.1 to my repo my side but for whatever idiotic reason, I didn't actually push it. I will do this on Friday when I'm home. I'm on holiday. And can't really get back to my computer until then. 
-I added more documentation etc etc but it's all still f..kin sat there.
-So... Wait on updating part 1 until Friday. Anyone who has and is struggling entering bootloader mode(because they dropped part 2 on there), I'll fix free of charge if you are unable to access bootloader mode. In meantime, your chip should continue to work normally using v9.0. if not, you should be able to enter bootloader mode.
+TL;DR? OK... All files now updated. Part 1 - Lots of modifications. Part 2 - Same. - SETTINGS.UF2 files introduced.
+
 ## Part 1 updated (after 4 years!) to support newer boards
 Boards supported are:
 - Adafruit Trinket M0
@@ -42,7 +41,7 @@ Brief instructions:
 
 Most SAMD21 devices are or can be supported.
 
-Look in the <install diagrams> to see how to fit one. Or fit a 'Naked' chip, without buttons, LED or even PCB.
+Look in the [install diagrams](https://github.com/mattytrog/FUSEE_SUITE/tree/master/Install%20Diagrams) to see how to fit one. Or fit a 'Naked' chip, without buttons, LED or even PCB.
 	
 It is recommended to flash your chip BEFORE FITTING in most cases. This is your decision though. You can access the UF2 bootloader in all circumstances. A new VIRGIN SOLO chip MUST be flashed before fitting, for your own sanity.
 	
