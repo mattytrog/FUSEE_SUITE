@@ -145,6 +145,19 @@ onboard single LED - so RGB LED is enabled on this.
 - If faulty charger or connection, this can be detected and shown (repeated reboots are counted and stored), if necessary, -control switched off.
 - Neopixel support added
 - 20s long-press for "blind" sans-LED UF2 bootloader access.
+
+#### ISSUES / FAQ
+
+- I flashed Part 1 - Nothing happened. No drive popped up.
+
+Disconnect from USB if connected, power off and back on again. If still nothing, you need to manually enter RESET. Either touch RESET pin to GND or touch SWDIO to GND while powering on.
+
+- I cannot drag and drop anything to my chip. Nothing happens when I press RESET.
+
+You have a virgin chip? This needs to be flashed initially with OpenOCD / Raspberry Pi / Other flasher. I can do this for price of postage.
+If you have a board that is or was working, do a quick check... If fitted to console, turn on while pressing VOL+. Is RCM triggered? Then you just need to enter UF2 mode. Refer to first question.
+If nothing, you have incredibly managed to corrupt Part 1. Treat as a virgin chip. Connect SWCLK and SWDIO and flash using OpenOCD.
+If you have USB port still fitted to board, try plugging into PC and double-pressing RESET.
 	
 #### TODO: More indepth guide on flashing and usage
 	
