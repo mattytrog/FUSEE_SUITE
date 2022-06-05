@@ -65,7 +65,7 @@ If you are reflashing a bricked chip, same instructions apply.
 #### Flash part 2
 I will upload 2 identical versions. One with the long-press settings approach, one with multiple press approach. These are identical files with just one 
 option "preset" to enable long or multiple-press. You can change this option in the menu or with your VOL+ button. This is for convenience only. The files are exactly
-identical.
+identical. You can also change your settings with a SETTINGS.UF2 file.
 	
 Long-press - at ANY POINT the console is powered on, you can HOLD VOL+ and and LED will flash. Count these flashes for a setting.
 The settings are:
