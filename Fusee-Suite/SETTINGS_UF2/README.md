@@ -1,3 +1,5 @@
+## These are settings files for all versions of Fusee_UF2. Just open your UF2 drive and drag / drop. This will not overwrite your current firmware, this merely changes virtual EEPROM settings.
+
 ## Naming Convention
 
 The filename has 4 "sections"...
