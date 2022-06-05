@@ -42,6 +42,15 @@ Fin
 Most SAMD21 devices are or can be supported.
 
 Look in the <install diagrams> to see how to fit one. Or fit a 'Naked' chip, without buttons, LED or even PCB.
+	
+It is recommended to flash your chip BEFORE FITTING in most cases. This is your decision though. You can access the UF2 bootloader in all circumstances. A new VIRGIN SOLO chip MUST be flashed before fitting, for your own sanity.
+	
+So...
+	
+- Flash Part 1 - a Fusee drive will open.
+- Flash Part 2 - the software will run immediately.
+- OPTIONAL - You will see new "SETTINGS.UF2" files. These are universal across all SAMD21 chips. Access UF2 mode and drag/drop to change your chip settings.
+
 
 ## Operation
 
