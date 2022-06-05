@@ -12,7 +12,20 @@ This consists of:
 A Nintendo Switch v1 UNPATCHED CONSOLE  
 SAMD21 Device (Adafruit Trinket / Gemma / ItsyBitsy etc)  
 Part 1 of this software which is the SWITCHBOOT or FUSEE RCM bootloader that, once the chip is installed in your console, will trigger RCM mode.  
-Part 2 which is the actual payload loading software and chip settings...  
+Part 2 which is the actual payload loading software and chip settings...
+
+## Features
+- Fast exploiting and boot
+- Fast (approx < 5mS) triggering of RCM
+- Built-in SD browsing tools
+- Recalibrate battery and fuel gauge (it isn't God though - a knackered battery is still knackered)
+- "Correct" boot screen. Either stock black, or red/white
+- Change between OFW / CFW / Linux etc etc just by holding down a button at switch-on
+- Fast SAFE backup feature
+- Software easy to program and update (once you get your head around it)
+- Bin the PC launch tools, joycon jigs and battery-killing autoRCM forever
+- Many users over 4+ years (went a long time without updates as they aren't essential)
+- If your chip is fitted right, will last for a lifetime
 
 ## Brief instructions:
 - Fit chip
@@ -24,7 +37,7 @@ Part 2 which is the actual payload loading software and chip settings...
 - Power on.
 - Short press VOL+ boots fusee.bin(or Hekate/Nyx). Long press on VOL+ enters menu
 - VOL- AND VOL+ runs Hekate/Nyx(no further config necessary - payload should already be "bootloader/update.bin"
-- Press no buttons - either fusee.bin will launch, or Original Firmware will launch depending on your chip settings
+- Press no buttons - chosen payload will launch, or Original Firmware will launch depending on your chip settings
 
 ## FITTING A CHIP
 
