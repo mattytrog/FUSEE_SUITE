@@ -136,4 +136,10 @@ onboard single LED - so RGB LED is enabled on this.
 - If faulty charger or connection, this can be detected and shown (repeated reboots are counted and stored), if necessary, -control switched off.
 - Neopixel support added
 - 20s long-press for "blind" sans-LED UF2 bootloader access.
+	
+#### TODO: More indepth guide on flashing and usage
+	
+#### TODO: Raspberry Pi OpenOCD image link here and brief guide.
+	
+## Disclaimer: You should know exactly what you are doing before attempting this modification. It isn't easy - there are really really small points to solder to. No keys or Nintendo copyrighted works are included in this. This is released as open-source, with no warranty given or implied. YOU ONLY HAVE YOURSELF TO BLAME.
 
