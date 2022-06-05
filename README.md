@@ -141,7 +141,6 @@ onboard single LED - so RGB LED is enabled on this.
 
 - Cleanup
 - Speedup check / launch / stack collapse. Fusee launching (to Atmosphere logo at least) is 2x faster than stock.
-- If faulty charger or connection, this can be detected and shown (repeated reboots are counted and stored), if necessary, -control switched off.
 - Neopixel support added
 - 20s long-press for "blind" sans-LED UF2 bootloader access.
 
