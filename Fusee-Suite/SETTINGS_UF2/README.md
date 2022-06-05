@@ -1,6 +1,7 @@
 ## Naming Convention
 
 The filename has 4 "sections"...
+
 Section 1: Bootlogo colour - Black or Red (B / R)
 
 Section 2: Strap presence prechecked. Assumes all straps are fitted and working(AS), or tested on-device(NS) - All straps or No straps (AS / NS)
