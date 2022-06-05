@@ -13,7 +13,9 @@ Boards supported are:
 (https://github.com/mattytrog/FUSEE_SUITE/tree/master/Fusee-Suite/Old)
 
 ## USERS WITHOUT RESET BUTTON
-To access the UF2 bootloader, either HOLD VOL+ for 20 Seconds (LED users) or SELECT THE OPTION IN THE CHIP ASSISTANT MENU. See below...
+To access the UF2 bootloader, either HOLD VOL+ for 20 Seconds (LED users) or SELECT THE OPTION IN THE CHIP ASSISTANT MENU.
+If you have no part 2 flashed, or is corrupt, and you have no access to the RESET pin, you can alternatively power-off your chip,
+touch SWDIO to GND and power on. This will get you into the part 1 bootloader... See below...
 
 ## FUSEE UF2
 
@@ -39,9 +41,12 @@ Look in the <install diagrams> to see how to fit one. Or fit a 'Naked' chip, wit
 
 ## Operation
 
-#### Choose a part 1
-Either with reset switch support or without. Without is faster but you cannot double-press reset to access bootloader... Instead hold VOL+ for 20 seconds.
-This is for naked chips / boards (eg RCMX86) or "thick" boards, eg QTPY_m0, which require removing RST button.
+#### Flash part 1
+If flashing a NEW SAMD21 chip, you will need to do this with your favourite flasher, or alternatively use my Raspberry Pi / OpenOCD image that is configured, ready to go.
+Connect power, GND, SWCLK and SWDIO and flash a BIN file. I recommend using TRINKET version, but any will do. Remember if using the FEATHER version, your chip will
+require an external oscillator. Whatever you choose, your virgin chip will be using those pins as in a full board. So you would wire your straps as that chip.
+
+If you are reflashing a bricked chip, same instructions apply.
  
 #### Flash part 2
 I will upload 2 identical versions. One with the long-press settings approach, one with multiple press approach. These are identical files with just one 
@@ -82,11 +87,21 @@ from scratch is still a faff, but you will have all your certs and calibration d
 UF2 Bootloader modifications
 
 - Updated for QTPY
-- Detection code to check dual-boot flag
+- (As yet unpublished Raspberry Pi Pico support - this requires testing further, so isn't included at this time)
+- Detection code to check dual-boot flag, with new Failsafe option
 - Renamed
-- Option to remove RST button support for faster booting and units without RST switch.
-- Adjustable delay for straps(currently 50mS)
+- Option to remove RST button support for faster booting and units without RST switch - this isn't active. After consideration, it was decided to leave double-press
+intact. If you want to disable RESET button for whatever reason, a rebuild from source is required, after editing your "board_config.h" file.
+- Part 1 now detects if USB has power before pulling the straps low(if using the Failsafe RCM setting). If it does, the PC is plugged in and no payload can be pushed. This could cause a battery to go flat
+and become damaged. The new option (settable in part 2) will not allow this to happen. If this setting is used, if attempting to boot using the chip and USB is plugged in,
+a NORMAL OFW BOOT will occur and the chip will switch off until next reboot. This is optional and is in no way required. But it can be handy. It WILL burn fuses - so if you are trying to save fuses,
+for whatever reason, (no real need to any longer), do not use this.
+- Emergency bootloader access (if you have no RESET pin access or whatever)... Touch SWDIO to GND when pressing PWR to enter UF2 mode.(PWR off, touch SWDIO to GND, power on).
+- Adjustable delay for straps(currently 75mS - I've had good results using a strap hold time of 25 mS. If you want to change this, rebuild from source included. Edit "board_config.h" for your board.
 - Built using 2019-9-Q4 GCC toolchain. Newer versions result in a slower binary which cannot init fast enough to enter RCM.
+- To accomodate the larger init code and fuse settings in SAMD21, the binary has grown substantially for part 1. Its been necessary to remove RGB LED support for PART 1 ONLY. You will only see a single
+LED if fitted. RGB LED will work normally once Part 2 is flashed. This applies to Part 1 only. We do not need an RGB LED with Part 1 anyway... Adafruit QTPY is excluded from this - it has no provision for
+onboard single LED - so RGB LED is enabled on this.
 
 
 #### Main program modifications
