@@ -2,7 +2,7 @@
 
 The filename has 4 "sections"...
 
-#### "[COLOUR]_[STRAPS]_[BOOTING_PRIORITY]_[SETTING_CHANGE_METHOD].UF2"
+#### "(COLOUR)_(STRAPS)_(BOOTING_PRIORITY)_(SETTING_CHANGE_METHOD).UF2"
 
 #### Section 1: Bootlogo colour - Black or Red (B / R)
 
