@@ -72,6 +72,8 @@ So...
 ## Operation
 
 #### Flash part 1
+For "stock" microcontrollers (ie Adafruit), just drag and drop your Part 1 onto your chips UF2 drive. Thats it.
+
 If flashing a NEW SAMD21 chip, you will need to do this with your favourite flasher, or alternatively use my Raspberry Pi / OpenOCD image that is configured, ready to go.
 Connect power, GND, SWCLK and SWDIO and flash a BIN file. I recommend using TRINKET version, but any will do. Remember if using the FEATHER version, your chip will
 require an external oscillator. Whatever you choose, your virgin chip will be using those pins as in a full board. So you would wire your straps as that chip.
@@ -79,6 +81,8 @@ require an external oscillator. Whatever you choose, your virgin chip will be us
 If you are reflashing a bricked chip, same instructions apply.
  
 #### Flash part 2
+Drag and drop chosen part 2 to FUSEE UF2 drive. Flashing complete.
+
 I will upload 2 identical versions. One with the long-press settings approach, one with multiple press approach. These are identical files with just one 
 option "preset" to enable long or multiple-press. You can change this option in the menu or with your VOL+ button. This is for convenience only. The files are exactly
 identical. You can also change your settings with a SETTINGS.UF2 file.
