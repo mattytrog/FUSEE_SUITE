@@ -37,3 +37,6 @@ The filename has 4 "sections"...
 - JV = Joycon and Volume prechecked
 - CRCM = CHIPRCM DEFAULT
 - MP = MULTIPLE-PRESS VOLUME ONBOARD CHIP SETTINGS ADJUSTMENT
+
+## Make your own? Easy...
+![settingsgraphic](https://user-images.githubusercontent.com/41282276/172063223-b871ea17-300f-4d7d-8770-103b904becbc.jpg)
