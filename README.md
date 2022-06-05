@@ -1,4 +1,4 @@
-## Current Version: 9.1
+## Current Version: 9.2
 
 I've dropped a big b0llock. I pushed v9.1 to my repo my side but for whatever idiotic reason, I didn't actually push it. I will do this on Friday when I'm home. I'm on holiday. And can't really get back to my computer until then. 
 I added more documentation etc etc but it's all still f..kin sat there.
