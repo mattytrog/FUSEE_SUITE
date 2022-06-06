@@ -1,8 +1,11 @@
-## Current Version: 9.2
+## Current Version: 9.2.1
 
-TL;DR? OK... All files now updated. Part 1 - Lots of modifications. Part 2 - Same. - SETTINGS.UF2 files introduced.
+#### TL;DR? Changelog and other bits...
 
-## Old README and other versions are [HERE](https://github.com/mattytrog/FUSEE_SUITE/tree/master/Fusee-Suite/Old)
+- 06/06/22 - Silent bugfix. Neopixel brightness adjustment fixed. Added a VOL+ lockout (for kids Switches - only settable with SETTINGS.UF2, or building with Arduino). Changed settings filename convention. Improved SETTINGS.UF2 files.
+- 05/06/22 - OK... All files now updated. Part 1 - Lots of modifications. Part 2 - Same. - SETTINGS.UF2 files introduced.
+
+## Old README and older (basic) versions are [HERE](https://github.com/mattytrog/FUSEE_SUITE/tree/master/Fusee-Suite/Old)
 
 ## FUSEE UF2
 
