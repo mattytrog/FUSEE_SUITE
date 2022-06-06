@@ -8,6 +8,7 @@
 ## Old README and older (basic) versions are [HERE](https://github.com/mattytrog/FUSEE_SUITE/tree/master/Fusee-Suite/Old)
 
 ## Quick upgrade procedure if coming from earlier version...
+- Make sure your SD is set up as SDSetup does it... bootloader/update.bin present AT LEAST. Drag and drop fusee.bin to SD root (its in payloads folder) if desired. If you want your own file organisation, you will need to choose your fusee.bin payload(can be anything) and update.bin (again, anything) in the menu of Fusee_UF2.
 - Boot your Switch into either OFW or CFW
 - Get into UF2 mode, by either flexing back cover to activate reset switch TWICE. So Press... Press... Or if you don't have a RESET button, take back off console and touch RESET to GND. If running a recent-ish version of Fusee_UF2, there are ways how to enter UF2 mode without taking the back off... Look in Old Releases above.
 - Ensure Switch screen is sleeping and switched off - DONT REBOOT!
@@ -19,6 +20,11 @@
 - Choose a Part 2. Long-press, or Multiple-press? You decide. Multiple-press is designed for people without LED. But anyone can use it. Drag and drop. UF2 drive should open again...
 - You are finished. You can either power down or flash a SETTINGS.UF2. Console will boot normally or however you have configured it.
 - End. If all went well, you should never need to open your console (if you did) to enter UF2 mode again. Most people shouldn't need to strip their console just to reset their chip into UF2 mode.
+
+#### Important differences...
+- This doesn't look for payload.bin any longer. It looks for fusee.bin (or bootloader/update.bin). You can rename your payload.bin in the Fusee_UF2 menu.
+- Want to boot Hekate every time? Easy. Just disable or delete fusee.bin if you have it (or even rename hekate to that if you desire). Hekate / Nyx will boot automatically.
+- Hold down BOTH VOL buttons and power on if you want to cold-boot to Hekate / Nyx, rather than fusee.bin(not permanent, this boot only. To make permanent, disable fusee.bin in menu)
 ## FUSEE UF2
 
 Nintendo Switch internal microcontroller-based payload loader/booter.  
