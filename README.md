@@ -14,8 +14,8 @@
 - Plug into PC using USB-C cable. You will get a "Unable to charge" error. This is normal
 - Make the screen sleep (if it woken up) by pressing POWER to turn it off and sleep the console
 - A UF2 drive should pop up (or mount). Will be called SWITCHBOOT probably
-- Drag and drop the new part 1, for your chip. Will probably be a Trinket or a team clone.
-- UF2 drive should disappear and reopen again a few seconds later. If it doesn't, flex back cover twice again and switch screen off... Should now appear.
+- Drag and drop the new part 1, for your chip. Will probably be a Trinket or a team clone. Drag and drop Part 1... The name will change from SWITCHBOOT to FUSEE. If it isn't FUSEE, something went wrong. Try again.
+- UF2 drive should disappear and reopen again a few seconds later. If it doesn't, flex back cover twice again and switch screen off... Should now appear. Check drive is called FUSEE! This is important.
 - Choose a Part 2. Long-press, or Multiple-press? You decide. Multiple-press is designed for people without LED. But anyone can use it. Drag and drop. UF2 drive should open again...
 - You are finished. You can either power down or flash a SETTINGS.UF2. Console will boot normally or however you have configured it.
 - End.
