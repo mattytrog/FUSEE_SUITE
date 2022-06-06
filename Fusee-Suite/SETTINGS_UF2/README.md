@@ -2,41 +2,50 @@
 
 ## Naming Convention
 
-The filename has 4 "sections"...
+The filename has 6 "sections"...
 
-#### (COLOUR) _ (STRAPS) _ (BOOT PRIORITY) _ (SETTINGS-CHANGE-METHOD) . UF2
+#### (COLOUR) _ (STRAPS) _ (BOOT PRIORITY) _ (SETTINGS-CHANGE-METHOD) _ (BOOT OPTIONS AVAILABLE) _ (VOL+ SETTINGS LOCK) . UF2
 
 #### Section 1: Bootlogo colour - Black or Red (B / R)
 
-#### Section 2: Strap presence prechecked. Assumes all straps are fitted and working(AS), or tested on-device(NS) - All straps or No straps (AS / NS), or (JVU)
+#### Section 2: Strap presence prechecked. J - Joycon, V - Volume, U - USB... eg JVU (all straps pre-registered) or JV (all but USB strap registered) etc etc
 
-#### Section 3: Dual-boot(DB), ChipRCM(CRCM)(permanent CFW boot), FailsafeRCM(FRCM) - if USB strap is fitted - (Normal boot will occur if USB power is connected, to prevent locked in RCM. WILL BURN FUSES)
+#### Section 3: (B1 - Dualboot / ChipRCM) / (B2 - Dualboot / FailsafeRCM) / (B3 - Dualboot / ChipRCM / FailsafeRCM)
 
-#### Section 4: Long-press(LP) or Multiple-press(MP) - Long-press is for LED fitted devices. Just long-press and let go to change a setting. Multiple-press gives you an "assistant" in the menu, handy for people WITHOUT LED.
+#### Section 4: Boot option preselected. 1 = Dual-boot, 2 - ChipRCM, 3 - FailsafeRCM
 
-#### Example 1: B_AS_CRCM_LP.UF2
+#### Section 5: Long-press(LP), Multiple-press(MP) or Bootloader Press (BP)- Long-press is for LED fitted devices. Just long-press and let go to change a setting. Multiple-press gives you an "assistant" in the menu, handy for people WITHOUT LED.
+
+
+#### Example 1: SETTINGS_B_JVU_B1_2_LP.UF2
 - B = BLACK
-- AS = ALL STRAPS PRE_CHECKED
-- CRCM = CHIPRCM DEFAULT
+- JVU = ALL STRAPS PRE_CHECKED
+- B1 = DUAL-BOOT / CHIP_RCM AVAILABLE
+- 2 = OPTION 2 (CHIP_RCM - aka AUTORCM SELECTED)
 - LP = LONG-PRESS VOLUME ONBOARD CHIP SETTINGS ADJUSTMENT
 
-#### Example 2: R_NS_DB_MP.UF2
-- R = RED
-- NS = NO STRAPS PRECHECKED - VALUES FILLED IN AS CONSOLE RUNS
-- DB = DUAL-BOOT DEFAULT
-- MP = MULTIPLE-PRESS VOLUME ONBOARD CHIP SETTINGS ADJUSTMENT
 
-#### Example 3: B_AS_FRCM_LP.UF2
+#### Example 2: SETTINGS_R_JVU_B2_1_BP.UF2 (ideal for childrens console)
+- R = RED
+- JVU = ALL STRAPS PRE_CHECKED
+- B2 = DUAL-BOOT / FAILSAFE_RCM AVAILABLE
+- 1 = OPTION 1 (DUAL-BOOT CURRENTLY SELECTED)
+- BP = BOOTLOADER ONLY OPTION SETTABLE WITH VOL+. ACCESSIBLE WITH 20 SECOND LONG_PRESS ON VOL+
+
+
+#### Example 3: SETTINGS_R_JVU_B3_3_MP.UF2 (ideal for blind installations (No reset switch or LED)
+- R = RED
+- JVU = ALL STRAPS PRE_CHECKED
+- B3 = DUAL-BOOT / CHIP_RCM / FAILSAFE_RCM AVAILABLE
+- 3 = OPTION 3 (FAILSAFE_RCM CURRENTLY SELECTED)
+- MP = MULTIPLE-PRESS CHIP SETTINGS (TIMES OUT AFTER 30 SECONDS)
+
+#### Example 4: SETTINGS_B_J_B1_1_LP.UF2 (Example Use-case - Someone with only Joycon strap attached)
 - B = BLACK
-- AS = ALL STRAPS PRE_CHECKED
-- FRCM = FAILSAFE RCM - Normal boot will occur if USB power is connected, to prevent locked in RCM.
-- LP = LONG-PRESS VOLUME ONBOARD CHIP SETTINGS ADJUSTMENT
-
-#### Example 4: R_JV_CRCM_MP.UF2
-- R = RED
-- JV = Joycon and Volume prechecked
-- CRCM = CHIPRCM DEFAULT
-- MP = MULTIPLE-PRESS VOLUME ONBOARD CHIP SETTINGS ADJUSTMENT
+- J = Joycon Only Prechecked (Only strap fitted for this chap)
+- B1 = DUAL-BOOT / CHIP_RCM AVAILABLE
+- 2 = OPTION 2 (CHIP_RCM - aka AUTORCM SELECTED - CONSOLE WOULD ALWAYS BE DUAL-BOOT, DUE TO LACK OF STRAPS FITTED)
+- LP = LONG-PRESS VOLUME ONBOARD CHIP SETTINGS ADJUSTMENT - MATTERS LITTLE AS WITH NO VOL+ STRAP, NOT ACCESSIBLE
 
 ## Make your own? Easy...
-![settingsgraphic](https://user-images.githubusercontent.com/41282276/172063223-b871ea17-300f-4d7d-8770-103b904becbc.jpg)
+
