@@ -35,7 +35,7 @@ SAMD21 Device (Adafruit Trinket / Gemma / ItsyBitsy etc)
 Part 1 of this software which is the SWITCHBOOT or FUSEE RCM bootloader that, once the chip is installed in your console, will trigger RCM mode.  
 Part 2 which is the actual payload loading software and chip settings...
 
-## Features
+## Features - Thanks to CTCAer for Hekate base that is partly used in Part 2. Arduino being the other part.
 - Fast exploiting and boot
 - Fast (approx < 5mS) triggering of RCM
 - Built-in SD browsing tools
