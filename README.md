@@ -7,6 +7,18 @@
 
 ## Old README and older (basic) versions are [HERE](https://github.com/mattytrog/FUSEE_SUITE/tree/master/Fusee-Suite/Old)
 
+## Quick upgrade procedure if coming from earlier version...
+- Boot your Switch into either OFW or CFW
+- Get into UF2 mode, by either flexing back cover to activate reset switch TWICE. So Press... Press... Or if you don't have a RESET button, take back off console and touch RESET to GND. If running a recent-ish version of Fusee_UF2, there are ways how to enter UF2 mode without taking the back off... Look in Old Releases above.
+- Ensure Switch screen is sleeping and switched off - DONT REBOOT!
+- Plug into PC using USB-C cable. You will get a "Unable to charge" error. This is normal
+- Make the screen sleep (if it woken up) by pressing POWER to turn it off and sleep the console
+- A UF2 drive should pop up (or mount). Will be called SWITCHBOOT probably
+- Drag and drop the new part 1, for your chip. Will probably be a Trinket or a team clone.
+- UF2 drive should disappear and reopen again a few seconds later. If it doesn't, flex back cover twice again and switch screen off... Should now appear.
+- Choose a Part 2. Long-press, or Multiple-press? You decide. Multiple-press is designed for people without LED. But anyone can use it. Drag and drop. UF2 drive should open again...
+- You are finished. You can either power down or flash a SETTINGS.UF2. Console will boot normally or however you have configured it.
+- End.
 ## FUSEE UF2
 
 Nintendo Switch internal microcontroller-based payload loader/booter.  
