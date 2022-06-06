@@ -2,9 +2,9 @@
 
 ## Naming Convention
 
-The filename has 6 "sections"...
+The filename has 5 "sections"...
 
-#### (COLOUR) _ (STRAPS) _ (BOOT PRIORITY) _ (SETTINGS-CHANGE-METHOD) _ (BOOT OPTIONS AVAILABLE) _ (VOL+ SETTINGS LOCK) . UF2
+#### SETTINGS _ (COLOUR) _ (STRAPS) _ (BOOT OPTIONS AVAILABLE) _ (BOOT PRIORITY) _ (SETTINGS-CHANGE-METHOD). UF2
 
 #### Section 1: Bootlogo colour - Black or Red (B / R)
 
