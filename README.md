@@ -18,7 +18,7 @@
 - UF2 drive should disappear and reopen again a few seconds later. If it doesn't, flex back cover twice again and switch screen off... Should now appear. Check drive is called FUSEE! This is important.
 - Choose a Part 2. Long-press, or Multiple-press? You decide. Multiple-press is designed for people without LED. But anyone can use it. Drag and drop. UF2 drive should open again...
 - You are finished. You can either power down or flash a SETTINGS.UF2. Console will boot normally or however you have configured it.
-- End.
+- End. If all went well, you should never need to open your console (if you did) to enter UF2 mode again. Most people shouldn't need to strip their console just to reset their chip into UF2 mode.
 ## FUSEE UF2
 
 Nintendo Switch internal microcontroller-based payload loader/booter.  
