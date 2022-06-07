@@ -1,5 +1,7 @@
 ## These are settings files for all versions of Fusee_UF2. Just open your UF2 drive and drag / drop. This will not overwrite your current firmware, this merely changes virtual EEPROM settings. You can of course use VOL+ to change these settings when CFW is running, as always.
 
+## You can "reset" the EEPROM in the VOL+ settings, or just flash BLANK.UF2 for some default values.
+
 ## Naming Convention
 
 The filename has 5 "sections"...
@@ -48,4 +50,4 @@ The filename has 5 "sections"...
 - LP = LONG-PRESS VOLUME ONBOARD CHIP SETTINGS ADJUSTMENT - MATTERS LITTLE AS WITH NO VOL+ STRAP, NOT ACCESSIBLE
 
 ## Make your own? Easy...
-
+![settingsgraphic](https://user-images.githubusercontent.com/41282276/172249882-cffa847a-9cb9-408e-9b36-6d4df604d758.jpg)
