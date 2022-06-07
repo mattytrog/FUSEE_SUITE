@@ -146,9 +146,9 @@ void writeSettings(const bool overwrite) {
     flash_erase_row((uint32_t * ) PAGE_08);
     flash_erase_row((uint32_t * ) PAGE_12);
     memset(blankarray, 0xFF, 64);
-    //Store settings in flash. 16 pages used for wear-levelling, starts reading from first page.
+    //16 words per page, total 64 bytes per page.
     for (int y = PAGE_00; y <= (PAGE_15); y += PAGE_SIZE) {
-      //If we find a page with no user settings, write them and stop looking.
+      
       flash_write_words((uint32_t * ) y, blankarray, 16);
     }
 
