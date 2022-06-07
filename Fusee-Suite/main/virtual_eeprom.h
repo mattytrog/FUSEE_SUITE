@@ -190,7 +190,7 @@ void writeSettings(const bool overwrite) {
 
     {
       //If we find a page with no user settings, write them and stop looking.
-      flash_write_words((uint32_t * ) y, settingsarray, 4);
+      flash_write_words((uint32_t * ) y, settingsarray, 4); // Not 4 bytes, 4 words
       break;
     }
   }
