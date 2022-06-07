@@ -16,7 +16,8 @@
 // 1 = Dual-boot / ChipRCM.   2 = Dual-boot / FailsafeRCM   3 = Dual-boot / ChipRCM / FailsafeRCM
 #define BOOT_OPTIONS_AVAILABLE 1
 
-//All options disabled. Updateable via SETTINGS.UF2. Long-press for 20 seconds for UF2 mode. 1 = Settings Disabled. 0 = Enabled
+//All options disabled. Updateable via SETTINGS.UF2. 1 = Settings Disabled. 0 = Enabled 
+//Long-press for 20 seconds for UF2 mode is still available in all modes in all circumstances.
 #define VOLUP_SETTINGS_DISABLED 0
 
 //Uncomment chosen chip and CHANGE CHIP in Tools menu under "Board"
