@@ -21,8 +21,8 @@
 #define VOLUP_SETTINGS_DISABLED 0
 
 //Uncomment chosen chip and CHANGE CHIP in Tools menu under "Board"
-//#define TRINKET
-#define QTPY
+#define TRINKET
+//#define QTPY
 //#define REBUG
 //#define RCMX86_INTERNAL
 //#define GEMMA
