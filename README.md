@@ -203,6 +203,33 @@ If you have USB port still fitted to board, try plugging into PC and double-pres
 #### TODO: More indepth guide on flashing and usage
 	
 #### TODO: Raspberry Pi OpenOCD image link here and brief guide.
-	
+
+## Glossary of terms used in this document
+
+- CFW - Custom firmware
+- OFW - Original (standard) firmware
+- RCM - Special mode of the Switch to do things, probably in the factory. Not normally accessible to end-users. We just it as the special mode required to launch "payloads"
+- AutoRCM - Automatically entering RCM mode needed to begin the process of running CFW on the Switch
+- Payload - A piece of software that basically boots and does something on the console, exploiting the unit to run code it shouldn't
+- ChipRCM - My version of autoRCM. Instead of controlled corrupting of flash storage like other methods, this uses basically the "official" way to achieve RCM, with a chip
+- FailsafeRCM - Same as ChipRCM, but automatically disables itself when it cannot do anything eg when plugged into PC (using Fusee-UF2 via a chip is not possible if USB is plugged into PC, resulting the unit being "trapped" in RCM mode. If left in this mode, the battery will be ran completely flat and damaged potentially)
+- SAFE backup - Essential backup of BOOT0/1 and PRODINFO. These contain certificates and calibration data for your console. They are not interchangeable. Google "Brickachu" for more information
+- Strap - A wire or conductor linking an input/output of a chip (our SAMD21 we use for Fusee_UF2) to a point on the Switch motherboard, to perform a function. EG VOL+ strap emulates somebody pressing VOL+ button. We use 3. Joycon, Volume and USB. Only Joycon is essential to running CFW. Vol+ is pressed by hand (can be)
+- Drop the straps / Drop a strap - Pull a strap to GND, triggering its action
+
+## Why keep working on such a simple piece of software to do a simple job?
+
+- Because I want it right and as problem-free as possible
+- It should be easy to use
+- And easy to install
+
+## How?
+
+- It builds the payload on-the-fly in a split-second, based on selected settings. Using code from Me, Usbhost, other people from back in the day and the creator of Hekate, and Arduino. Its a combined effort (or it was)
+
+## Doesn't it wear the chip out keeping writing to it?
+
+- Yes, eventually. Maybe. Atmel quote 10,000 write cycles before the chip starts getting dementia. However, this software uses full wear-levelling, and only individual bits are written only when needed, at once, not rewriting the same data over and over, effectively giving us 10000 ^ 15 (we have 15 pages we use, right at the end of the flash) write cycles. Which is probably more than an SD card... I've been using the same SAMD21 test rig, with same chip, since 2018. Written and in use almost daily. Its still fine. Its not written to all the time. You will probably set your options and never change them
+
 ## Disclaimer: You should know exactly what you are doing before attempting this modification. It isn't easy - there are really really small points to solder to. No keys or Nintendo copyrighted works are included in this. This is released as open-source, with no warranty given or implied. YOU ONLY HAVE YOURSELF TO BLAME.
 
