@@ -16,7 +16,7 @@
 // 1 = Dual-boot / ChipRCM.   2 = Dual-boot / FailsafeRCM   3 = Dual-boot / ChipRCM / FailsafeRCM
 #define BOOT_OPTIONS_AVAILABLE 1
 
-//All options disabled. Updateable via SETTINGS.UF2. 1 = Settings Disabled. 0 = Enabled 
+//All VOL+ chip options disabled(a child mode?). Updateable via SETTINGS.UF2. 1 = Settings Disabled. 0 = Enabled 
 //Long-press for 20 seconds for UF2 mode is still available in all modes in all circumstances.
 #define VOLUP_SETTINGS_DISABLED 0
 
@@ -40,13 +40,14 @@
 #define DEFAULT_JOYCON 0
 #define DEFAULT_VOLUME 0
 #define DEFAULT_COLOUR 1
-#define DEFAULT_SETTINGS_CHANGE 0
+#define DEFAULT_SETTINGS_CHANGE 0 //0 = Long-press (hold for at least 4 seconds and count flashes) or 1 = (multiple-press quickly).
+//These are disabled if VOLUP_SETTINGS_DISABLED = 1 (see above)
 
 
 //Time in mS to select an option with rapid-press in Chip Assistant
 #define SELECTION_RELEASE_TIME 200
 #define SELECTION_CONFIRM_TIME 200
-#define TIME_TUNE 30 // Compensation for timing errors. Worked out manually
+#define TIME_TUNE 30 // Compensation for timing errors. Worked out manually. Switch timer runs approx 4.8% faster than SAMD21 when counting Milliseconds.
 #define SAFETY_PRESS_BARRIER 5 // How many "non-presses" before you get to your first setting
 #define BUTTON_GAP 2 // Gap to leave between options
 #define OPTIONS_TO_SHOW 6 // How many options to show
