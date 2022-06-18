@@ -110,12 +110,12 @@ identical. You can also change your settings with a SETTINGS.UF2 file.
 	
 Long-press - at ANY POINT the console is powered on, you can HOLD VOL+ and and LED will flash. Count these flashes for a setting.
 The settings are:
-Flash 1 - Dual-boot / Chip-based RCM toggle or FailsafeRCM (by default, chip RCM is enabled and console will enter RCM every boot if straps are connected)
-Flash 2 - Bootlogo colour toggle - "Stock" black or "Switch" red
-Flash 3 - RGB LED / Dotstar / Neopixel brightness (if fitted to correct pins, stock Adafruit devices are)
-Flash 4 - Long-press / Multiple-press settings toggle
-Flash 5 - Reset all chip options back to defaults(AutoRCM - ChipRCM actually enabled, black / white "stock" bootscreen)
-Flash 6 - UF2 Bootloader access. Activate this when in the Fusee_UF2 program, connect to PC and launch something (OFW / CFW?) and the FUSEE (was SWITCHBOOT) will pop right open. People without LED can still access this by holding VOL+ for 20 seconds
+- Flash 1 - Dual-boot / Chip-based RCM toggle or FailsafeRCM (by default, chip RCM is enabled and console will enter RCM every boot if straps are connected)
+- Flash 2 - Bootlogo colour toggle - "Stock" black or "Switch" red
+- Flash 3 - RGB LED / Dotstar / Neopixel brightness (if fitted to correct pins, stock Adafruit devices are)
+- Flash 4 - Long-press / Multiple-press settings toggle
+- Flash 5 - Reset all chip options back to defaults(AutoRCM - ChipRCM actually enabled, black / white "stock" bootscreen)
+- Flash 6 - UF2 Bootloader access. Activate this when in the Fusee_UF2 program, connect to PC and launch something (OFW / CFW?) and the FUSEE (was SWITCHBOOT) will pop right open. People without LED can still access this by holding VOL+ for 20 seconds
 
 Multiple-press - This mode is only active for 30 seconds from a cold-boot. So if you want to set multiple options, you might need to reboot to reset the countdown.
 	The countdown is displayed on the screen. Why have a countdown? So it cannot be accidentally activated. Kids and grownups will multiple-press VOL+ to increase volume
