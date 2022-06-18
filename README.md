@@ -2,6 +2,7 @@
 
 #### TL;DR? Changelog and other bits...
 
+- 18/06/22 - Added BETA Seeeduino XIAO support. This is completely untested as I do not have such a device. I'm relying on the board being built correctly and not having any nasty bugs. Trinket etc will NOT work on this board as it has external oscillator, like a Feather. So if you flash an "incorrect" version, it won't run. It will just sit there. The straps will be wrong anyway... Part 1 and part 2 added. SETTINGS.UF2 can be used as other boards.
 - 06/06/22 - Silent bugfix. Neopixel brightness adjustment fixed. Added a VOL+ lockout (for kids Switches - only settable with SETTINGS.UF2, or building with Arduino). Changed settings filename convention. Improved SETTINGS.UF2 files. After flashing, UF2 mode will start automatically, for convenience of adding SETTINGS.UF2. If not required, just power down console and reboot to set some default values. All automatic.
 - 05/06/22 - OK... All files now updated. Part 1 - Lots of modifications. Part 2 - Same. - SETTINGS.UF2 files introduced.
 
