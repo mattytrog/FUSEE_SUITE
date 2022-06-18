@@ -67,6 +67,7 @@ Most SAMD21 devices are or can be supported.
 Boards supported are:
 - Adafruit Trinket M0
 - Adafruit QTPY M0
+- SEEEDUINO XIAO (testing BETA)
 - Rebug SWITCHME
 - RCM-X86
 - Adafruit Gemma
