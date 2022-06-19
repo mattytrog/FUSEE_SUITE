@@ -43,6 +43,12 @@ ledInit ()
 #ifdef ONBOARD_LED
   pinMode (ONBOARD_LED, OUTPUT);
 #endif
+#ifdef TX_LED
+  pinMode (TX_LED, OUTPUT);
+#endif
+#ifdef RX_LED
+  pinMode (RX_LED, OUTPUT);
+#endif
 }
 
 void
@@ -147,12 +153,39 @@ setLedColor (const char color[])
   pixels.show ();
 #endif
 
-#ifdef ONBOARD_LED
   if (!strcmp (color, "black"))
+  {
+#ifdef ONBOARD_LED
     digitalWrite (ONBOARD_LED, LOW);
+#endif
+#ifdef TX_LED
+    digitalWrite (TX_LED, LOW);
+#endif
+#ifdef RX_LED
+    digitalWrite (RX_LED, LOW);
+#endif
+  }
   else
+  {
+#ifdef ONBOARD_LED
     digitalWrite (ONBOARD_LED, HIGH);
 #endif
+#ifdef ALL_LEDS_ACTIVE
+#ifdef TX_LED
+    digitalWrite (TX_LED, HIGH);
+#endif
+#ifdef RX_LED
+    digitalWrite (RX_LED, HIGH);
+#endif
+#else
+#ifdef TX_LED
+    digitalWrite (TX_LED, LOW);
+#endif
+#ifdef RX_LED
+    digitalWrite (RX_LED, LOW);
+#endif
+#endif
+  }
 }
 
 void
@@ -187,7 +220,7 @@ confirmLed (const char color[], uint32_t count)
 int
 pauseInterrupt (const uint32_t uS)
 {
-  #ifdef VOLUP_STRAP_PIN
+#ifdef VOLUP_STRAP_PIN
   uint32_t uSTimer = 0;
   int res = 0;
   while (uSTimer < uS)
@@ -202,7 +235,7 @@ pauseInterrupt (const uint32_t uS)
     ++uSTimer;
   }
   return res;
-  #endif
+#endif
 }
 
 
@@ -245,9 +278,9 @@ void
 full_reset ()
 {
   confirmLed ("white", 10);
-  
+
   writeSettings (true);
-  
+
   NVIC_SystemReset();
 }
 
@@ -385,7 +418,7 @@ toggle_colour ()
 int
 get_btn_res (const char releasetime, const char confirmtime)
 {
-  #ifdef VOLUP_STRAP_PIN
+#ifdef VOLUP_STRAP_PIN
   char btn_count = 0;
   unsigned long ticktick = ((millis() / 100) * 105);
   unsigned long newticktick = (ticktick + releasetime);
@@ -401,7 +434,9 @@ get_btn_res (const char releasetime, const char confirmtime)
       ledBlink ("red", 1, 10000, 90000);
 
       ++btn_count;
-      while (!(digitalRead (VOLUP_STRAP_PIN))) {long_press(2000);}
+      while (!(digitalRead (VOLUP_STRAP_PIN))) {
+        long_press(2000);
+      }
 
     }
 
@@ -412,7 +447,7 @@ get_btn_res (const char releasetime, const char confirmtime)
   //
 
   return btn_count;
-  #endif
+#endif
 }
 
 void
@@ -500,7 +535,7 @@ multiple_press ()
   }
   btn = 0;
   return;
-  #endif
+#endif
 }
 
 void long_press(const int first_press_time)
@@ -538,13 +573,13 @@ void long_press(const int first_press_time)
           old_timer = hold_timer;
           ledBlink("green", 10, flash_time, flash_off_time);
           ledBlink("green", 1, steady_on_time, 0);
-          if(first_press_time <= 400) res += 1;
+          if (first_press_time <= 400) res += 1;
           else
           {
             res = 6;
             break;
           }
-          
+
         }
       if (res)
         if (hold_timer == (old_timer + timer_gap)) {
@@ -612,7 +647,7 @@ void long_press(const int first_press_time)
     //confirmLed("white", 50);
   }
   return;
-  #endif
+#endif
 }
 
 
@@ -692,8 +727,12 @@ isfitted ()
 #endif
 }
 
-void long_press1() {long_press(400);}
-void long_press2() {long_press(2000);}
+void long_press1() {
+  long_press(400);
+}
+void long_press2() {
+  long_press(2000);
+}
 
 
 void
@@ -710,14 +749,14 @@ sleep (const int errorCode)
   if (errorCode == 0)
   {
     ledBlink("red", 1, 25000, 500000);
-    #ifdef USB_LOW_RESET
+#ifdef USB_LOW_RESET
     if (EEPROM_USB_STRAP == 1 && EEPROM_DUAL_BOOT_TOGGLE == 2)
     {
       pinMode (USB_LOW_RESET, INPUT);
       attachInterrupt (USB_LOW_RESET, reset, FALLING);
       // confirmLed("green",50);
     }
-    #endif
+#endif
 
   }
 
@@ -732,10 +771,10 @@ sleep (const int errorCode)
 #ifdef VOLUP_STRAP_PIN
   pinMode (VOLUP_STRAP_PIN, INPUT_PULLUP);
 
-int temp_errorCode = errorCode;  
-if(EEPROM_SETTINGS_LOCKOUT) temp_errorCode = 1;
-  
-  
+  int temp_errorCode = errorCode;
+  if (EEPROM_SETTINGS_LOCKOUT) temp_errorCode = 1;
+
+
   if (TEMP_EEPROM_SETTINGS_CHANGE == 1)
   {
     if (temp_errorCode == 1)
@@ -774,28 +813,28 @@ void first_run()
   else
   {
     EEPROM_INITIAL_WRITE = 1;
-  EEPROM_COLOUR = DEFAULT_COLOUR;
-  SPARE1 = 0;
-  SPARE2 = 0;
-  EEPROM_VOL_CONTROL_STRAP = 0;
-  EEPROM_JOYCON_CONTROL_STRAP = 0;
-  EEPROM_DOTSTAR_BRIGHTNESS = DEFAULT_DOTSTAR_BRIGHTNESS;
-  SPARE3 = 0;
-  SPARE4 = 0;
-  EEPROM_DUAL_BOOT_TOGGLE = 2;
-  EEPROM_BOOT_OPTIONS_AVAILABLE = BOOT_OPTIONS_AVAILABLE;
-  EEPROM_SETTINGS_LOCKOUT = VOLUP_SETTINGS_DISABLED;
-  EEPROM_SETTINGS_CHANGE = DEFAULT_SETTINGS_CHANGE;
-  
-  SPARE7 = 0;
-  //is usb strap fitted?
+    EEPROM_COLOUR = DEFAULT_COLOUR;
+    SPARE1 = 0;
+    SPARE2 = 0;
+    EEPROM_VOL_CONTROL_STRAP = 0;
+    EEPROM_JOYCON_CONTROL_STRAP = 0;
+    EEPROM_DOTSTAR_BRIGHTNESS = DEFAULT_DOTSTAR_BRIGHTNESS;
+    SPARE3 = 0;
+    SPARE4 = 0;
+    EEPROM_DUAL_BOOT_TOGGLE = 2;
+    EEPROM_BOOT_OPTIONS_AVAILABLE = BOOT_OPTIONS_AVAILABLE;
+    EEPROM_SETTINGS_LOCKOUT = VOLUP_SETTINGS_DISABLED;
+    EEPROM_SETTINGS_CHANGE = DEFAULT_SETTINGS_CHANGE;
+
+    SPARE7 = 0;
+    //is usb strap fitted?
 #ifdef USB_LOW_RESET
-  pinMode(USB_LOW_RESET, INPUT_PULLDOWN); // use internal pulldown on this boot only
-  int usb_voltage_check = digitalRead (USB_LOW_RESET); // check voltage on thermistor pad on BQ24193
-  if (usb_voltage_check == HIGH || usb_voltage_check == RISING) EEPROM_USB_STRAP = 1;
-  else EEPROM_USB_STRAP = 0;
+    pinMode(USB_LOW_RESET, INPUT_PULLDOWN); // use internal pulldown on this boot only
+    int usb_voltage_check = digitalRead (USB_LOW_RESET); // check voltage on thermistor pad on BQ24193
+    if (usb_voltage_check == HIGH || usb_voltage_check == RISING) EEPROM_USB_STRAP = 1;
+    else EEPROM_USB_STRAP = 0;
 #else
-  EEPROM_USB_STRAP = 0;
+    EEPROM_USB_STRAP = 0;
 #endif
   }
   confirmLed("white", 50);

@@ -16,13 +16,13 @@
 // 1 = Dual-boot / ChipRCM.   2 = Dual-boot / FailsafeRCM   3 = Dual-boot / ChipRCM / FailsafeRCM
 #define BOOT_OPTIONS_AVAILABLE 1
 
-//All VOL+ chip options disabled(a child mode?). Updateable via SETTINGS.UF2. 1 = Settings Disabled. 0 = Enabled 
-//Long-press for 20 seconds for UF2 mode is still available in all modes in all circumstances.
+//All options disabled. Updateable via SETTINGS.UF2. Long-press for 20 seconds for UF2 mode. 1 = Settings Disabled. 0 = Enabled
 #define VOLUP_SETTINGS_DISABLED 0
 
 //Uncomment chosen chip and CHANGE CHIP in Tools menu under "Board"
-#define TRINKET
+//#define TRINKET
 //#define QTPY
+#define XIAO
 //#define REBUG
 //#define RCMX86_INTERNAL
 //#define GEMMA
@@ -40,14 +40,13 @@
 #define DEFAULT_JOYCON 0
 #define DEFAULT_VOLUME 0
 #define DEFAULT_COLOUR 1
-#define DEFAULT_SETTINGS_CHANGE 0 //0 = Long-press (hold for at least 4 seconds and count flashes) or 1 = (multiple-press quickly).
-//These are disabled if VOLUP_SETTINGS_DISABLED = 1 (see above)
+#define DEFAULT_SETTINGS_CHANGE 1 //0 = Long-press / 1 = Multiple-press
 
 
 //Time in mS to select an option with rapid-press in Chip Assistant
 #define SELECTION_RELEASE_TIME 200
 #define SELECTION_CONFIRM_TIME 200
-#define TIME_TUNE 30 // Compensation for timing errors. Worked out manually. Switch timer runs approx 4.8% faster than SAMD21 when counting Milliseconds.
+#define TIME_TUNE 30 // Compensation for timing errors. Worked out manually
 #define SAFETY_PRESS_BARRIER 5 // How many "non-presses" before you get to your first setting
 #define BUTTON_GAP 2 // Gap to leave between options
 #define OPTIONS_TO_SHOW 6 // How many options to show
@@ -76,6 +75,19 @@
 #define VOLUP_STRAP_PIN 3
 #define BOARD_NEOPIXEL_PIN 11
 #define BOARD_NEOPIXEL_COUNT 1
+#endif
+
+//Board definitions
+#ifdef XIAO
+#include <Usb.h>
+//#define DOTSTAR_ENABLED 1
+#define USB_LOW_RESET 2
+#define JOYCON_STRAP_PIN 10         // Solder to pin 10 on joycon rail
+#define VOLUP_STRAP_PIN 7
+#define ALL_LEDS_ACTIVE // Repurpose TX/RX leds to be additional indicator LEDS. Comment out to switch them off, leaving normal (pin 13) LED as only LED available
+#define ONBOARD_LED 13
+#define TXLED 11
+#define RXLED 12
 #endif
 
 #ifdef REBUG
