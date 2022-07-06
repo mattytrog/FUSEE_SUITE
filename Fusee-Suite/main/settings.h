@@ -21,8 +21,8 @@
 
 //Uncomment chosen chip and CHANGE CHIP in Tools menu under "Board"
 //#define TRINKET
-//#define QTPY
-#define XIAO
+#define QTPY
+//#define XIAO
 //#define REBUG
 //#define RCMX86_INTERNAL
 //#define GEMMA
@@ -40,7 +40,7 @@
 #define DEFAULT_JOYCON 0
 #define DEFAULT_VOLUME 0
 #define DEFAULT_COLOUR 1
-#define DEFAULT_SETTINGS_CHANGE 1 //0 = Long-press / 1 = Multiple-press
+#define DEFAULT_SETTINGS_CHANGE 0 //0 = Long-press / 1 = Multiple-press
 
 
 //Time in mS to select an option with rapid-press in Chip Assistant
@@ -84,8 +84,8 @@
 #define USB_LOW_RESET 2
 #define JOYCON_STRAP_PIN 10         // Solder to pin 10 on joycon rail
 #define VOLUP_STRAP_PIN 7
-#define ALL_LEDS_ACTIVE // Repurpose TX/RX leds to be additional indicator LEDS. Comment out to switch them off, leaving normal (pin 13) LED as only LED available
-#define ONBOARD_LED 13
+#define TRX_LEDS_ACTIVE // Repurpose TX/RX leds to be additional indicator LEDS. Comment out to switch them off, leaving normal (pin 13) LED as only LED available
+#define ONBOARD_LED_INVERTED 13
 #define TXLED 11
 #define RXLED 12
 #endif

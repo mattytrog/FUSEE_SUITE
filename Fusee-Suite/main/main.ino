@@ -25,152 +25,106 @@ Adafruit_DotStar strip
 Adafruit_NeoPixel pixels(BOARD_NEOPIXEL_COUNT, BOARD_NEOPIXEL_PIN, NEO_GRB + NEO_KHZ800);
 #endif
 
-void
-ledInit ()
+void ledInit ()
 {
 #ifdef DOTSTAR_ENABLED
   strip.begin ();
-  strip.setPixelColor (0, 0, 0, 0);
-  strip.show ();
+  setRgbLed(0, 0, 0);
 #endif
 
 #ifdef NEOPIXEL_ENABLED
   pixels.begin ();
-  pixels.setPixelColor(1, pixels.Color(0, 0, 0));
-  pixels.show();
+  setRgbLed(0, 0, 0);
+#endif
+
+#ifdef ONBOARD_LED_INVERTED
+  pinMode (ONBOARD_LED_INVERTED, OUTPUT);
+  digitalWrite (ONBOARD_LED_INVERTED, HIGH);
 #endif
 
 #ifdef ONBOARD_LED
   pinMode (ONBOARD_LED, OUTPUT);
+  digitalWrite (ONBOARD_LED, LOW);
 #endif
+
 #ifdef TX_LED
   pinMode (TX_LED, OUTPUT);
+  digitalWrite (TX_LED, LOW);
 #endif
 #ifdef RX_LED
   pinMode (RX_LED, OUTPUT);
+  digitalWrite (RX_LED, LOW);
 #endif
+}
+
+void ledBlink (const char color[], uint32_t count, uint32_t durationon, uint32_t durationoff)
+{
+  bool off = false;
+  for (uint32_t counter = 0; counter < count; counter++)
+  {
+    if(off)
+      {
+        setLedColor ("black");
+        delayMicroseconds (durationoff);
+        off=false;
+      }
+      else
+      {
+        setLedColor (color);
+        delayMicroseconds (durationon);
+        off=true;
+      }
+  }
+  setLedColor ("black");
+}
+
+void
+confirmLed (const char color[], uint32_t count)
+{
+  ledBlink (color, count, 37500, 37500);
 }
 
 void
 setLedColor (const char color[])
 {
-
-  if (!strcmp (color, "red"))
-  {
-#ifdef DOTSTAR_ENABLED
-    strip.setPixelColor (0, EEPROM_DOTSTAR_BRIGHTNESS, 0, 0);
-#endif
-#ifdef NEOPIXEL_ENABLED
-    pixels.setPixelColor(0, pixels.Color(EEPROM_DOTSTAR_BRIGHTNESS, 0, 0));
-#endif
-  }
-  else if (!strcmp (color, "green"))
-  {
-#ifdef DOTSTAR_ENABLED
-    strip.setPixelColor (0, 0, EEPROM_DOTSTAR_BRIGHTNESS, 0);
-#endif
-#ifdef NEOPIXEL_ENABLED
-    pixels.setPixelColor(0, pixels.Color(0, EEPROM_DOTSTAR_BRIGHTNESS, 0));
-#endif
-  }
-  else if (!strcmp (color, "orange"))
-  {
-#ifdef DOTSTAR_ENABLED
-    strip.setPixelColor (0, EEPROM_DOTSTAR_BRIGHTNESS,
-                         (EEPROM_DOTSTAR_BRIGHTNESS / 2), 0);
-#endif
-#ifdef NEOPIXEL_ENABLED
-    pixels.setPixelColor(0, pixels.Color(EEPROM_DOTSTAR_BRIGHTNESS,
-                                         (EEPROM_DOTSTAR_BRIGHTNESS / 2), 0));
-#endif
-  }
-  else if (!strcmp (color, "yellow"))
-  {
-#ifdef DOTSTAR_ENABLED
-    strip.setPixelColor (0, EEPROM_DOTSTAR_BRIGHTNESS,
-                         EEPROM_DOTSTAR_BRIGHTNESS, 0);
-#endif
-#ifdef NEOPIXEL_ENABLED
-    pixels.setPixelColor(0, pixels.Color(EEPROM_DOTSTAR_BRIGHTNESS,
-                                         EEPROM_DOTSTAR_BRIGHTNESS, 0));
-#endif
-  }
-  else if (!strcmp (color, "purple"))
-  {
-#ifdef DOTSTAR_ENABLED
-    strip.setPixelColor (0, EEPROM_DOTSTAR_BRIGHTNESS, 0,
-                         EEPROM_DOTSTAR_BRIGHTNESS);
-#endif
-#ifdef NEOPIXEL_ENABLED
-    pixels.setPixelColor(0, pixels.Color(EEPROM_DOTSTAR_BRIGHTNESS, 0,
-                                         EEPROM_DOTSTAR_BRIGHTNESS));
-#endif
-  }
-  else if (!strcmp (color, "black"))
-  {
-#ifdef DOTSTAR_ENABLED
-    strip.setPixelColor (0, 0, 0, 0);
-#endif
-#ifdef NEOPIXEL_ENABLED
-    pixels.setPixelColor(0, pixels.Color(0, 0, 0));
-#endif
-  }
-  else if (!strcmp (color, "blue"))
-  {
-#ifdef DOTSTAR_ENABLED
-    strip.setPixelColor (0, 0, 0, EEPROM_DOTSTAR_BRIGHTNESS);
-#endif
-#ifdef NEOPIXEL_ENABLED
-    pixels.setPixelColor(0, pixels.Color(0, 0, EEPROM_DOTSTAR_BRIGHTNESS));
-#endif
-  }
-  else if (!strcmp (color, "white"))
-  {
-#ifdef DOTSTAR_ENABLED
-    strip.setPixelColor (0, EEPROM_DOTSTAR_BRIGHTNESS,
-                         EEPROM_DOTSTAR_BRIGHTNESS,
-                         EEPROM_DOTSTAR_BRIGHTNESS);
-#endif
-#ifdef NEOPIXEL_ENABLED
-    pixels.setPixelColor(0, pixels.Color(EEPROM_DOTSTAR_BRIGHTNESS,
-                                         EEPROM_DOTSTAR_BRIGHTNESS,
-                                         EEPROM_DOTSTAR_BRIGHTNESS));
-#endif
-  }
-  else
-  {
-#ifdef DOTSTAR_ENABLED
-    strip.setPixelColor (0, 255, 255, 255);
-#endif
-#ifdef NEOPIXEL_ENABLED
-    pixels.setPixelColor(0, pixels.Color(255, 255, 255));
-#endif
-  }
-#ifdef DOTSTAR_ENABLED
-  strip.show ();
-#endif
-#ifdef NEOPIXEL_ENABLED
-  pixels.show ();
-#endif
-
   if (!strcmp (color, "black"))
   {
+#ifdef ONBOARD_LED_INVERTED
+    digitalWrite (ONBOARD_LED_INVERTED, HIGH);
+#endif
+
 #ifdef ONBOARD_LED
     digitalWrite (ONBOARD_LED, LOW);
 #endif
+
+#ifdef TRX_LEDS_ACTIVE
 #ifdef TX_LED
     digitalWrite (TX_LED, LOW);
 #endif
 #ifdef RX_LED
     digitalWrite (RX_LED, LOW);
 #endif
+#else
+#ifdef TX_LED
+    digitalWrite (TX_LED, LOW);
+#endif
+#ifdef RX_LED
+    digitalWrite (RX_LED, LOW);
+#endif
+#endif
+    setRgbLed(0, 0, 0);
   }
   else
   {
+#ifdef ONBOARD_LED_INVERTED
+    digitalWrite (ONBOARD_LED_INVERTED, LOW);
+#endif
+
 #ifdef ONBOARD_LED
     digitalWrite (ONBOARD_LED, HIGH);
 #endif
-#ifdef ALL_LEDS_ACTIVE
+
+#ifdef TRX_LEDS_ACTIVE
 #ifdef TX_LED
     digitalWrite (TX_LED, HIGH);
 #endif
@@ -185,59 +139,55 @@ setLedColor (const char color[])
     digitalWrite (RX_LED, LOW);
 #endif
 #endif
-  }
-}
 
-void
-ledBlink (const char color[], uint32_t count, uint32_t durationon,
-          uint32_t durationoff)
-{
-  for (uint32_t counter = 0; counter < count; counter++)
-  {
-    for (int onOff = 1; onOff >= 0; onOff--)
+    if (!strcmp (color, "red"))
     {
-      if (onOff == 1)
-      {
-        setLedColor (color);
-        delayMicroseconds (durationon);
-      }
-      else
-      {
-        setLedColor ("black");
-        delayMicroseconds (durationoff);
-      }
+      setRgbLed(EEPROM_DOTSTAR_BRIGHTNESS, 0, 0);
+    }
+
+    if (!strcmp (color, "green"))
+    {
+      setRgbLed(0, EEPROM_DOTSTAR_BRIGHTNESS, 0);
+    }
+
+    if (!strcmp (color, "blue"))
+    {
+      setRgbLed(0, 0, EEPROM_DOTSTAR_BRIGHTNESS);
+    }
+
+    if (!strcmp (color, "orange"))
+    {
+      setRgbLed(EEPROM_DOTSTAR_BRIGHTNESS, (EEPROM_DOTSTAR_BRIGHTNESS / 2), 0);
+    }
+
+    if (!strcmp (color, "yellow"))
+    {
+      setRgbLed(EEPROM_DOTSTAR_BRIGHTNESS, EEPROM_DOTSTAR_BRIGHTNESS, 0);
+    }
+
+    if (!strcmp (color, "purple"))
+    {
+      setRgbLed(EEPROM_DOTSTAR_BRIGHTNESS, 0, EEPROM_DOTSTAR_BRIGHTNESS);
+    }
+
+    if (!strcmp (color, "white"))
+    {
+      setRgbLed(EEPROM_DOTSTAR_BRIGHTNESS, EEPROM_DOTSTAR_BRIGHTNESS, EEPROM_DOTSTAR_BRIGHTNESS);
     }
   }
-  setLedColor ("black");
 }
 
-void
-confirmLed (const char color[], uint32_t count)
+void setRgbLed(const int RED, const int GREEN, const int BLUE)
 {
-  ledBlink (color, count, 37500, 37500);
-}
-
-int
-pauseInterrupt (const uint32_t uS)
-{
-#ifdef VOLUP_STRAP_PIN
-  uint32_t uSTimer = 0;
-  int res = 0;
-  while (uSTimer < uS)
-  {
-    if (digitalRead (VOLUP_STRAP_PIN) == LOW)
-    {
-      res = 1;
-    }
-    if (res)
-      break;
-    delayMicroseconds (1);
-    ++uSTimer;
-  }
-  return res;
+#ifdef DOTSTAR_ENABLED
+  strip.setPixelColor (0, RED, GREEN, BLUE);
+  strip.show ();
+#endif
+#ifdef NEOPIXEL_ENABLED
+  pixels.setPixelColor(0, pixels.Color(RED, GREEN, BLUE));
+  pixels.show ();
 #endif
 }
-
 
 void
 toggle_dual_boot_safe ()
@@ -663,8 +613,9 @@ bool find_RCM()
   {
     usb.Task ();
     usb.ForEachUsbDevice (&findTegraDevice);
-    if ((!foundTegra) && (millis() > (currentTime + 300))) return false;
+    if ((!foundTegra) && (millis() > (currentTime + 1000))) return false;
   }
+  delayMicroseconds(500000);
   return true;
 }
 
