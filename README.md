@@ -23,6 +23,21 @@
 - You are finished. You can either power down or flash a SETTINGS.UF2. Console will boot normally or however you have configured it.
 - End. If all went well, you should never need to open your console (if you did) to enter UF2 mode again. Most people shouldn't need to strip their console just to reset their chip into UF2 mode.
 
+## Fastest possible bare minimum deployment:
+- Use a supported Adafruit board(Recommend Trinket)
+- Connect to PC, enter bootloader mode with 2x presses of RESET
+- Drag and drop Trinket part 1
+- Drag and drop Trinket part 2
+- Remove USB port on Trinket with hot air
+- Fix Trinket to RAM shielding using Kapton as an insulator and some VHB double-sided tape
+- Connect USB D+/D-, 3V, GND and Joycon strap(THIS IS BARE MINIMUM. No permanent CFW boot is possible, as VOL+ strap is not fitted so will ALWAYS be dual-boot
+- Insulate with Kapton tape, nice and neat
+- Get some decent scissors and cut a slot in the shielding, making a gap for the Trinket
+- COMPLETE...
+
+- Fit extra straps if required. If you don't think you will use any of the chips extra features, then you don't need to.
+- The extra straps are VOL+ and USB, which are required if you permanently want to boot into CFW
+
 #### Important differences...
 - This doesn't look for payload.bin any longer. It looks for fusee.bin (or bootloader/update.bin). You can rename your payload.bin in the Fusee_UF2 menu.
 - Want to boot Hekate every time? Easy. Just disable or delete fusee.bin if you have it (or even rename hekate to that if you desire). Hekate / Nyx will boot automatically.
@@ -90,7 +105,7 @@ So...
 	
 - Flash Part 1 - a Fusee drive will open.
 - Flash Part 2 - the software will run immediately.
-- OPTIONAL - You will see new "SETTINGS.UF2" files. These are universal across all SAMD21 chips. Access UF2 mode and drag/drop to change your chip settings.
+- OPTIONAL - You will see new "SETTINGS.UF2" files in the Fusee branch on this site. These are universal across all SAMD21 chips. Access UF2 mode and drag/drop to change your chip settings.
 
 
 ## Operation
@@ -215,7 +230,7 @@ If you have USB port still fitted to board, try plugging into PC and double-pres
 - AutoRCM - Automatically entering RCM mode needed to begin the process of running CFW on the Switch
 - Payload - A piece of software that basically boots and does something on the console, exploiting the unit to run code it shouldn't
 - ChipRCM - My version of autoRCM. Instead of controlled corrupting of flash storage like other methods, this uses basically the "official" way to achieve RCM, with a chip
-- FailsafeRCM - Same as ChipRCM, but automatically disables itself when it cannot do anything eg when plugged into PC (using Fusee-UF2 via a chip is not possible if USB is plugged into PC, resulting the unit being "trapped" in RCM mode. If left in this mode, the battery will be ran completely flat and damaged potentially)
+- FailsafeRCM - Same as ChipRCM, but automatically disables itself when it cannot do anything eg when plugged into PC (using Fusee-UF2 via a chip is not possible if USB is plugged into PC, resulting the unit being "trapped" in RCM mode. If left in standard autoRCM or ChipRCM mode, the battery will be ran completely flat and damaged potentially). FailsafeRCM addresses this. You MUST have the USB strap connected to take advantage of this.
 - SAFE backup - Essential backup of BOOT0/1 and PRODINFO. These contain certificates and calibration data for your console. They are not interchangeable. Google "Brickachu" for more information
 - Strap - A wire or conductor linking an input/output of a chip (our SAMD21 we use for Fusee_UF2) to a point on the Switch motherboard, to perform a function. EG VOL+ strap emulates somebody pressing VOL+ button. We use 3. Joycon, Volume and USB. Only Joycon is essential to running CFW. Vol+ is pressed by hand (can be)
 - Drop the straps / Drop a strap - Pull a strap to GND, triggering its action
